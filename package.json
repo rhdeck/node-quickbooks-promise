@@ -5,5 +5,12 @@
   "main": "index.js",
   "repository": "https://github.com/rhdeck/node-quickbooks-promise",
   "author": "Ray Deck",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "node makePromises.js"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^4.0.1",
+    "mustache": "^3.0.1"
+  }
 }

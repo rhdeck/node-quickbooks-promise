@@ -1,552 +1,1479 @@
-const { promisify } = require("utils")
+const { promisify } = require("util")
+/**
+* Quickbooks integration class from node-quickbooks
+* @class
+*/
 const QuickBooks = require("node-quickbooks")
-
+//#region Conversion of methods to Old
 QuickBooks.prototype.refreshAccessTokenOld = QuickBooks.prototype.refreshAccessToken
+QuickBooks.prototype.revokeAccessOld = QuickBooks.prototype.revokeAccess
+QuickBooks.prototype.getUserInfoOld = QuickBooks.prototype.getUserInfo
+QuickBooks.prototype.batchOld = QuickBooks.prototype.batch
+QuickBooks.prototype.changeDataCaptureOld = QuickBooks.prototype.changeDataCapture
+QuickBooks.prototype.uploadOld = QuickBooks.prototype.upload
+QuickBooks.prototype.createAccountOld = QuickBooks.prototype.createAccount
+QuickBooks.prototype.createAttachableOld = QuickBooks.prototype.createAttachable
+QuickBooks.prototype.createBillOld = QuickBooks.prototype.createBill
+QuickBooks.prototype.createBillPaymentOld = QuickBooks.prototype.createBillPayment
+QuickBooks.prototype.createClassOld = QuickBooks.prototype.createClass
+QuickBooks.prototype.createCreditMemoOld = QuickBooks.prototype.createCreditMemo
+QuickBooks.prototype.createCustomerOld = QuickBooks.prototype.createCustomer
+QuickBooks.prototype.createDepartmentOld = QuickBooks.prototype.createDepartment
+QuickBooks.prototype.createDepositOld = QuickBooks.prototype.createDeposit
+QuickBooks.prototype.createEmployeeOld = QuickBooks.prototype.createEmployee
+QuickBooks.prototype.createEstimateOld = QuickBooks.prototype.createEstimate
+QuickBooks.prototype.createInvoiceOld = QuickBooks.prototype.createInvoice
+QuickBooks.prototype.createItemOld = QuickBooks.prototype.createItem
+QuickBooks.prototype.createJournalCodeOld = QuickBooks.prototype.createJournalCode
+QuickBooks.prototype.createJournalEntryOld = QuickBooks.prototype.createJournalEntry
+QuickBooks.prototype.createPaymentOld = QuickBooks.prototype.createPayment
+QuickBooks.prototype.createPaymentMethodOld = QuickBooks.prototype.createPaymentMethod
+QuickBooks.prototype.createPurchaseOld = QuickBooks.prototype.createPurchase
+QuickBooks.prototype.createPurchaseOrderOld = QuickBooks.prototype.createPurchaseOrder
+QuickBooks.prototype.createRefundReceiptOld = QuickBooks.prototype.createRefundReceipt
+QuickBooks.prototype.createSalesReceiptOld = QuickBooks.prototype.createSalesReceipt
+QuickBooks.prototype.createTaxAgencyOld = QuickBooks.prototype.createTaxAgency
+QuickBooks.prototype.createTaxServiceOld = QuickBooks.prototype.createTaxService
+QuickBooks.prototype.createTermOld = QuickBooks.prototype.createTerm
+QuickBooks.prototype.createTimeActivityOld = QuickBooks.prototype.createTimeActivity
+QuickBooks.prototype.createTransferOld = QuickBooks.prototype.createTransfer
+QuickBooks.prototype.createVendorOld = QuickBooks.prototype.createVendor
+QuickBooks.prototype.createVendorCreditOld = QuickBooks.prototype.createVendorCredit
+QuickBooks.prototype.getAccountOld = QuickBooks.prototype.getAccount
+QuickBooks.prototype.getAttachableOld = QuickBooks.prototype.getAttachable
+QuickBooks.prototype.getBillOld = QuickBooks.prototype.getBill
+QuickBooks.prototype.getBillPaymentOld = QuickBooks.prototype.getBillPayment
+QuickBooks.prototype.getClassOld = QuickBooks.prototype.getClass
+QuickBooks.prototype.getCompanyInfoOld = QuickBooks.prototype.getCompanyInfo
+QuickBooks.prototype.getCreditMemoOld = QuickBooks.prototype.getCreditMemo
+QuickBooks.prototype.getCustomerOld = QuickBooks.prototype.getCustomer
+QuickBooks.prototype.getDepartmentOld = QuickBooks.prototype.getDepartment
+QuickBooks.prototype.getDepositOld = QuickBooks.prototype.getDeposit
+QuickBooks.prototype.getEmployeeOld = QuickBooks.prototype.getEmployee
+QuickBooks.prototype.getEstimateOld = QuickBooks.prototype.getEstimate
+QuickBooks.prototype.getExchangeRateOld = QuickBooks.prototype.getExchangeRate
+QuickBooks.prototype.getEstimatePdfOld = QuickBooks.prototype.getEstimatePdf
+QuickBooks.prototype.sendEstimatePdfOld = QuickBooks.prototype.sendEstimatePdf
+QuickBooks.prototype.getInvoiceOld = QuickBooks.prototype.getInvoice
+QuickBooks.prototype.getInvoicePdfOld = QuickBooks.prototype.getInvoicePdf
+QuickBooks.prototype.sendInvoicePdfOld = QuickBooks.prototype.sendInvoicePdf
+QuickBooks.prototype.getItemOld = QuickBooks.prototype.getItem
+QuickBooks.prototype.getJournalCodeOld = QuickBooks.prototype.getJournalCode
+QuickBooks.prototype.getJournalEntryOld = QuickBooks.prototype.getJournalEntry
+QuickBooks.prototype.getPaymentOld = QuickBooks.prototype.getPayment
+QuickBooks.prototype.getPaymentMethodOld = QuickBooks.prototype.getPaymentMethod
+QuickBooks.prototype.getPreferencesOld = QuickBooks.prototype.getPreferences
+QuickBooks.prototype.getPurchaseOld = QuickBooks.prototype.getPurchase
+QuickBooks.prototype.getPurchaseOrderOld = QuickBooks.prototype.getPurchaseOrder
+QuickBooks.prototype.getRefundReceiptOld = QuickBooks.prototype.getRefundReceipt
+QuickBooks.prototype.getReportsOld = QuickBooks.prototype.getReports
+QuickBooks.prototype.getSalesReceiptOld = QuickBooks.prototype.getSalesReceipt
+QuickBooks.prototype.getSalesReceiptPdfOld = QuickBooks.prototype.getSalesReceiptPdf
+QuickBooks.prototype.sendSalesReceiptPdfOld = QuickBooks.prototype.sendSalesReceiptPdf
+QuickBooks.prototype.getTaxAgencyOld = QuickBooks.prototype.getTaxAgency
+QuickBooks.prototype.getTaxCodeOld = QuickBooks.prototype.getTaxCode
+QuickBooks.prototype.getTaxRateOld = QuickBooks.prototype.getTaxRate
+QuickBooks.prototype.getTermOld = QuickBooks.prototype.getTerm
+QuickBooks.prototype.getTimeActivityOld = QuickBooks.prototype.getTimeActivity
+QuickBooks.prototype.getTransferOld = QuickBooks.prototype.getTransfer
+QuickBooks.prototype.getVendorOld = QuickBooks.prototype.getVendor
+QuickBooks.prototype.getVendorCreditOld = QuickBooks.prototype.getVendorCredit
+QuickBooks.prototype.updateAccountOld = QuickBooks.prototype.updateAccount
+QuickBooks.prototype.updateAttachableOld = QuickBooks.prototype.updateAttachable
+QuickBooks.prototype.updateBillOld = QuickBooks.prototype.updateBill
+QuickBooks.prototype.updateBillPaymentOld = QuickBooks.prototype.updateBillPayment
+QuickBooks.prototype.updateClassOld = QuickBooks.prototype.updateClass
+QuickBooks.prototype.updateCompanyInfoOld = QuickBooks.prototype.updateCompanyInfo
+QuickBooks.prototype.updateCreditMemoOld = QuickBooks.prototype.updateCreditMemo
+QuickBooks.prototype.updateCustomerOld = QuickBooks.prototype.updateCustomer
+QuickBooks.prototype.updateDepartmentOld = QuickBooks.prototype.updateDepartment
+QuickBooks.prototype.updateDepositOld = QuickBooks.prototype.updateDeposit
+QuickBooks.prototype.updateEmployeeOld = QuickBooks.prototype.updateEmployee
+QuickBooks.prototype.updateEstimateOld = QuickBooks.prototype.updateEstimate
+QuickBooks.prototype.updateInvoiceOld = QuickBooks.prototype.updateInvoice
+QuickBooks.prototype.updateItemOld = QuickBooks.prototype.updateItem
+QuickBooks.prototype.updateJournalCodeOld = QuickBooks.prototype.updateJournalCode
+QuickBooks.prototype.updateJournalEntryOld = QuickBooks.prototype.updateJournalEntry
+QuickBooks.prototype.updatePaymentOld = QuickBooks.prototype.updatePayment
+QuickBooks.prototype.updatePaymentMethodOld = QuickBooks.prototype.updatePaymentMethod
+QuickBooks.prototype.updatePreferencesOld = QuickBooks.prototype.updatePreferences
+QuickBooks.prototype.updatePurchaseOld = QuickBooks.prototype.updatePurchase
+QuickBooks.prototype.updatePurchaseOrderOld = QuickBooks.prototype.updatePurchaseOrder
+QuickBooks.prototype.updateRefundReceiptOld = QuickBooks.prototype.updateRefundReceipt
+QuickBooks.prototype.updateSalesReceiptOld = QuickBooks.prototype.updateSalesReceipt
+QuickBooks.prototype.updateTaxAgencyOld = QuickBooks.prototype.updateTaxAgency
+QuickBooks.prototype.updateTaxCodeOld = QuickBooks.prototype.updateTaxCode
+QuickBooks.prototype.updateTaxRateOld = QuickBooks.prototype.updateTaxRate
+QuickBooks.prototype.updateTermOld = QuickBooks.prototype.updateTerm
+QuickBooks.prototype.updateTimeActivityOld = QuickBooks.prototype.updateTimeActivity
+QuickBooks.prototype.updateTransferOld = QuickBooks.prototype.updateTransfer
+QuickBooks.prototype.updateVendorOld = QuickBooks.prototype.updateVendor
+QuickBooks.prototype.updateVendorCreditOld = QuickBooks.prototype.updateVendorCredit
+QuickBooks.prototype.updateExchangeRateOld = QuickBooks.prototype.updateExchangeRate
+QuickBooks.prototype.deleteAttachableOld = QuickBooks.prototype.deleteAttachable
+QuickBooks.prototype.deleteBillOld = QuickBooks.prototype.deleteBill
+QuickBooks.prototype.deleteBillPaymentOld = QuickBooks.prototype.deleteBillPayment
+QuickBooks.prototype.deleteCreditMemoOld = QuickBooks.prototype.deleteCreditMemo
+QuickBooks.prototype.deleteDepositOld = QuickBooks.prototype.deleteDeposit
+QuickBooks.prototype.deleteEstimateOld = QuickBooks.prototype.deleteEstimate
+QuickBooks.prototype.deleteInvoiceOld = QuickBooks.prototype.deleteInvoice
+QuickBooks.prototype.deleteJournalCodeOld = QuickBooks.prototype.deleteJournalCode
+QuickBooks.prototype.deleteJournalEntryOld = QuickBooks.prototype.deleteJournalEntry
+QuickBooks.prototype.deletePaymentOld = QuickBooks.prototype.deletePayment
+QuickBooks.prototype.deletePurchaseOld = QuickBooks.prototype.deletePurchase
+QuickBooks.prototype.deletePurchaseOrderOld = QuickBooks.prototype.deletePurchaseOrder
+QuickBooks.prototype.deleteRefundReceiptOld = QuickBooks.prototype.deleteRefundReceipt
+QuickBooks.prototype.deleteSalesReceiptOld = QuickBooks.prototype.deleteSalesReceipt
+QuickBooks.prototype.deleteTimeActivityOld = QuickBooks.prototype.deleteTimeActivity
+QuickBooks.prototype.deleteTransferOld = QuickBooks.prototype.deleteTransfer
+QuickBooks.prototype.deleteVendorCreditOld = QuickBooks.prototype.deleteVendorCredit
+QuickBooks.prototype.voidInvoiceOld = QuickBooks.prototype.voidInvoice
+QuickBooks.prototype.voidPaymentOld = QuickBooks.prototype.voidPayment
+QuickBooks.prototype.findAccountsOld = QuickBooks.prototype.findAccounts
+QuickBooks.prototype.findAttachablesOld = QuickBooks.prototype.findAttachables
+QuickBooks.prototype.findBillsOld = QuickBooks.prototype.findBills
+QuickBooks.prototype.findBillPaymentsOld = QuickBooks.prototype.findBillPayments
+QuickBooks.prototype.findBudgetsOld = QuickBooks.prototype.findBudgets
+QuickBooks.prototype.findClassesOld = QuickBooks.prototype.findClasses
+QuickBooks.prototype.findCompanyInfosOld = QuickBooks.prototype.findCompanyInfos
+QuickBooks.prototype.findCreditMemosOld = QuickBooks.prototype.findCreditMemos
+QuickBooks.prototype.findCustomersOld = QuickBooks.prototype.findCustomers
+QuickBooks.prototype.findDepartmentsOld = QuickBooks.prototype.findDepartments
+QuickBooks.prototype.findDepositsOld = QuickBooks.prototype.findDeposits
+QuickBooks.prototype.findEmployeesOld = QuickBooks.prototype.findEmployees
+QuickBooks.prototype.findEstimatesOld = QuickBooks.prototype.findEstimates
+QuickBooks.prototype.findInvoicesOld = QuickBooks.prototype.findInvoices
+QuickBooks.prototype.findItemsOld = QuickBooks.prototype.findItems
+QuickBooks.prototype.findJournalCodesOld = QuickBooks.prototype.findJournalCodes
+QuickBooks.prototype.findJournalEntriesOld = QuickBooks.prototype.findJournalEntries
+QuickBooks.prototype.findPaymentsOld = QuickBooks.prototype.findPayments
+QuickBooks.prototype.findPaymentMethodsOld = QuickBooks.prototype.findPaymentMethods
+QuickBooks.prototype.findPreferencesesOld = QuickBooks.prototype.findPreferenceses
+QuickBooks.prototype.findPurchasesOld = QuickBooks.prototype.findPurchases
+QuickBooks.prototype.findPurchaseOrdersOld = QuickBooks.prototype.findPurchaseOrders
+QuickBooks.prototype.findRefundReceiptsOld = QuickBooks.prototype.findRefundReceipts
+QuickBooks.prototype.findSalesReceiptsOld = QuickBooks.prototype.findSalesReceipts
+QuickBooks.prototype.findTaxAgenciesOld = QuickBooks.prototype.findTaxAgencies
+QuickBooks.prototype.findTaxCodesOld = QuickBooks.prototype.findTaxCodes
+QuickBooks.prototype.findTaxRatesOld = QuickBooks.prototype.findTaxRates
+QuickBooks.prototype.findTermsOld = QuickBooks.prototype.findTerms
+QuickBooks.prototype.findTimeActivitiesOld = QuickBooks.prototype.findTimeActivities
+QuickBooks.prototype.findTransfersOld = QuickBooks.prototype.findTransfers
+QuickBooks.prototype.findVendorsOld = QuickBooks.prototype.findVendors
+QuickBooks.prototype.findVendorCreditsOld = QuickBooks.prototype.findVendorCredits
+QuickBooks.prototype.findExchangeRatesOld = QuickBooks.prototype.findExchangeRates
+QuickBooks.prototype.reportBalanceSheetOld = QuickBooks.prototype.reportBalanceSheet
+QuickBooks.prototype.reportProfitAndLossOld = QuickBooks.prototype.reportProfitAndLoss
+QuickBooks.prototype.reportProfitAndLossDetailOld = QuickBooks.prototype.reportProfitAndLossDetail
+QuickBooks.prototype.reportTrialBalanceOld = QuickBooks.prototype.reportTrialBalance
+QuickBooks.prototype.reportCashFlowOld = QuickBooks.prototype.reportCashFlow
+QuickBooks.prototype.reportInventoryValuationSummaryOld = QuickBooks.prototype.reportInventoryValuationSummary
+QuickBooks.prototype.reportCustomerSalesOld = QuickBooks.prototype.reportCustomerSales
+QuickBooks.prototype.reportItemSalesOld = QuickBooks.prototype.reportItemSales
+QuickBooks.prototype.reportCustomerIncomeOld = QuickBooks.prototype.reportCustomerIncome
+QuickBooks.prototype.reportCustomerBalanceOld = QuickBooks.prototype.reportCustomerBalance
+QuickBooks.prototype.reportCustomerBalanceDetailOld = QuickBooks.prototype.reportCustomerBalanceDetail
+QuickBooks.prototype.reportAgedReceivablesOld = QuickBooks.prototype.reportAgedReceivables
+QuickBooks.prototype.reportAgedReceivableDetailOld = QuickBooks.prototype.reportAgedReceivableDetail
+QuickBooks.prototype.reportVendorBalanceOld = QuickBooks.prototype.reportVendorBalance
+QuickBooks.prototype.reportVendorBalanceDetailOld = QuickBooks.prototype.reportVendorBalanceDetail
+QuickBooks.prototype.reportAgedPayablesOld = QuickBooks.prototype.reportAgedPayables
+QuickBooks.prototype.reportAgedPayableDetailOld = QuickBooks.prototype.reportAgedPayableDetail
+QuickBooks.prototype.reportVendorExpensesOld = QuickBooks.prototype.reportVendorExpenses
+QuickBooks.prototype.reportTransactionListOld = QuickBooks.prototype.reportTransactionList
+QuickBooks.prototype.reportGeneralLedgerDetailOld = QuickBooks.prototype.reportGeneralLedgerDetail
+QuickBooks.prototype.reportTaxSummaryOld = QuickBooks.prototype.reportTaxSummary
+QuickBooks.prototype.reportDepartmentSalesOld = QuickBooks.prototype.reportDepartmentSales
+QuickBooks.prototype.reportClassSalesOld = QuickBooks.prototype.reportClassSales
+QuickBooks.prototype.reportAccountListDetailOld = QuickBooks.prototype.reportAccountListDetail
+QuickBooks.prototype.reconnectOld = QuickBooks.prototype.reconnect
+QuickBooks.prototype.disconnectOld = QuickBooks.prototype.disconnect
+//#endregion
+//#region New Promise declarations
+
+
 QuickBooks.prototype.refreshAccessToken = promisify(QuickBooks.prototype.refreshAccessTokenOld)
 
-QuickBooks.prototype.revokeAccessOld = QuickBooks.prototype.revokeAccess
+/**
+ * Use either refresh token or access token to revoke access (OAuth2).
+ *
+ * @param useRefresh - boolean - Indicates which token to use: true to use the refresh token, false to use the access token.
+ */
 QuickBooks.prototype.revokeAccess = promisify(QuickBooks.prototype.revokeAccessOld)
 
-QuickBooks.prototype.getUserInfoOld = QuickBooks.prototype.getUserInfo
+/**
+ * Get user info (OAuth2).
+ *
+ */
 QuickBooks.prototype.getUserInfo = promisify(QuickBooks.prototype.getUserInfoOld)
 
-QuickBooks.prototype.batchOld = QuickBooks.prototype.batch
+/**
+ * Batch operation to enable an application to perform multiple operations in a single request.
+ * The following batch items are supported:
+     create
+     update
+     delete
+     query
+ * The maximum number of batch items in a single request is 25.
+ *
+ * @param  {object} items - JavaScript array of batch items
+ */
 QuickBooks.prototype.batch = promisify(QuickBooks.prototype.batchOld)
 
-QuickBooks.prototype.changeDataCaptureOld = QuickBooks.prototype.changeDataCapture
+/**
+ * The change data capture (CDC) operation returns a list of entities that have changed since a specified time.
+ *
+ * @param  {object} entities - Comma separated list or JavaScript array of entities to search for changes
+ * @param  {object} since - JavaScript Date or string representation of the form '2012-07-20T22:25:51-07:00' to look back for changes until
+ */
 QuickBooks.prototype.changeDataCapture = promisify(QuickBooks.prototype.changeDataCaptureOld)
 
-QuickBooks.prototype.uploadOld = QuickBooks.prototype.upload
+/**
+ * Uploads a file as an Attachable in QBO, optionally linking it to the specified
+ * QBO Entity.
+ *
+ * @param  {string} filename - the name of the file
+ * @param  {string} contentType - the mime type of the file
+ * @param  {object} stream - ReadableStream of file contents
+ * @param  {object} entityType - optional string name of the QBO entity the Attachable will be linked to (e.g. Invoice)
+ * @param  {object} entityId - optional Id of the QBO entity the Attachable will be linked to
+ */
 QuickBooks.prototype.upload = promisify(QuickBooks.prototype.uploadOld)
 
-QuickBooks.prototype.createAccountOld = QuickBooks.prototype.createAccount
+/**
+ * Creates the Account in QuickBooks
+ *
+ * @param  {object} account - The unsaved account, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createAccount = promisify(QuickBooks.prototype.createAccountOld)
 
-QuickBooks.prototype.createAttachableOld = QuickBooks.prototype.createAttachable
+/**
+ * Creates the Attachable in QuickBooks
+ *
+ * @param  {object} attachable - The unsaved attachable, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createAttachable = promisify(QuickBooks.prototype.createAttachableOld)
 
-QuickBooks.prototype.createBillOld = QuickBooks.prototype.createBill
+/**
+ * Creates the Bill in QuickBooks
+ *
+ * @param  {object} bill - The unsaved bill, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createBill = promisify(QuickBooks.prototype.createBillOld)
 
-QuickBooks.prototype.createBillPaymentOld = QuickBooks.prototype.createBillPayment
+/**
+ * Creates the BillPayment in QuickBooks
+ *
+ * @param  {object} billPayment - The unsaved billPayment, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createBillPayment = promisify(QuickBooks.prototype.createBillPaymentOld)
 
-QuickBooks.prototype.createClassOld = QuickBooks.prototype.createClass
+/**
+ * Creates the Class in QuickBooks
+ *
+ * @param  {object} class - The unsaved class, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createClass = promisify(QuickBooks.prototype.createClassOld)
 
-QuickBooks.prototype.createCreditMemoOld = QuickBooks.prototype.createCreditMemo
+/**
+ * Creates the CreditMemo in QuickBooks
+ *
+ * @param  {object} creditMemo - The unsaved creditMemo, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createCreditMemo = promisify(QuickBooks.prototype.createCreditMemoOld)
 
-QuickBooks.prototype.createCustomerOld = QuickBooks.prototype.createCustomer
+/**
+ * Creates the Customer in QuickBooks
+ *
+ * @param  {object} customer - The unsaved customer, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createCustomer = promisify(QuickBooks.prototype.createCustomerOld)
 
-QuickBooks.prototype.createDepartmentOld = QuickBooks.prototype.createDepartment
+/**
+ * Creates the Department in QuickBooks
+ *
+ * @param  {object} department - The unsaved department, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createDepartment = promisify(QuickBooks.prototype.createDepartmentOld)
 
-QuickBooks.prototype.createDepositOld = QuickBooks.prototype.createDeposit
+/**
+ * Creates the Deposit in QuickBooks
+ *
+ * @param  {object} deposit - The unsaved Deposit, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createDeposit = promisify(QuickBooks.prototype.createDepositOld)
 
-QuickBooks.prototype.createEmployeeOld = QuickBooks.prototype.createEmployee
+/**
+ * Creates the Employee in QuickBooks
+ *
+ * @param  {object} employee - The unsaved employee, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createEmployee = promisify(QuickBooks.prototype.createEmployeeOld)
 
-QuickBooks.prototype.createEstimateOld = QuickBooks.prototype.createEstimate
+/**
+ * Creates the Estimate in QuickBooks
+ *
+ * @param  {object} estimate - The unsaved estimate, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createEstimate = promisify(QuickBooks.prototype.createEstimateOld)
 
-QuickBooks.prototype.createInvoiceOld = QuickBooks.prototype.createInvoice
+/**
+ * Creates the Invoice in QuickBooks
+ *
+ * @param  {object} invoice - The unsaved invoice, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createInvoice = promisify(QuickBooks.prototype.createInvoiceOld)
 
-QuickBooks.prototype.createItemOld = QuickBooks.prototype.createItem
+/**
+ * Creates the Item in QuickBooks
+ *
+ * @param  {object} item - The unsaved item, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createItem = promisify(QuickBooks.prototype.createItemOld)
 
-QuickBooks.prototype.createJournalCodeOld = QuickBooks.prototype.createJournalCode
+/**
+ * Creates the JournalCode in QuickBooks
+ *
+ * @param  {object} journalCode - The unsaved journalCode, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createJournalCode = promisify(QuickBooks.prototype.createJournalCodeOld)
 
-QuickBooks.prototype.createJournalEntryOld = QuickBooks.prototype.createJournalEntry
+/**
+ * Creates the JournalEntry in QuickBooks
+ *
+ * @param  {object} journalEntry - The unsaved journalEntry, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createJournalEntry = promisify(QuickBooks.prototype.createJournalEntryOld)
 
-QuickBooks.prototype.createPaymentOld = QuickBooks.prototype.createPayment
+/**
+ * Creates the Payment in QuickBooks
+ *
+ * @param  {object} payment - The unsaved payment, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createPayment = promisify(QuickBooks.prototype.createPaymentOld)
 
-QuickBooks.prototype.createPaymentMethodOld = QuickBooks.prototype.createPaymentMethod
+/**
+ * Creates the PaymentMethod in QuickBooks
+ *
+ * @param  {object} paymentMethod - The unsaved paymentMethod, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createPaymentMethod = promisify(QuickBooks.prototype.createPaymentMethodOld)
 
-QuickBooks.prototype.createPurchaseOld = QuickBooks.prototype.createPurchase
+/**
+ * Creates the Purchase in QuickBooks
+ *
+ * @param  {object} purchase - The unsaved purchase, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createPurchase = promisify(QuickBooks.prototype.createPurchaseOld)
 
-QuickBooks.prototype.createPurchaseOrderOld = QuickBooks.prototype.createPurchaseOrder
+/**
+ * Creates the PurchaseOrder in QuickBooks
+ *
+ * @param  {object} purchaseOrder - The unsaved purchaseOrder, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createPurchaseOrder = promisify(QuickBooks.prototype.createPurchaseOrderOld)
 
-QuickBooks.prototype.createRefundReceiptOld = QuickBooks.prototype.createRefundReceipt
+/**
+ * Creates the RefundReceipt in QuickBooks
+ *
+ * @param  {object} refundReceipt - The unsaved refundReceipt, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createRefundReceipt = promisify(QuickBooks.prototype.createRefundReceiptOld)
 
-QuickBooks.prototype.createSalesReceiptOld = QuickBooks.prototype.createSalesReceipt
+/**
+ * Creates the SalesReceipt in QuickBooks
+ *
+ * @param  {object} salesReceipt - The unsaved salesReceipt, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createSalesReceipt = promisify(QuickBooks.prototype.createSalesReceiptOld)
 
-QuickBooks.prototype.createTaxAgencyOld = QuickBooks.prototype.createTaxAgency
+/**
+ * Creates the TaxAgency in QuickBooks
+ *
+ * @param  {object} taxAgency - The unsaved taxAgency, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createTaxAgency = promisify(QuickBooks.prototype.createTaxAgencyOld)
 
-QuickBooks.prototype.createTaxServiceOld = QuickBooks.prototype.createTaxService
+/**
+ * Creates the TaxService in QuickBooks
+ *
+ * @param  {object} taxService - The unsaved taxService, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createTaxService = promisify(QuickBooks.prototype.createTaxServiceOld)
 
-QuickBooks.prototype.createTermOld = QuickBooks.prototype.createTerm
+/**
+ * Creates the Term in QuickBooks
+ *
+ * @param  {object} term - The unsaved term, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createTerm = promisify(QuickBooks.prototype.createTermOld)
 
-QuickBooks.prototype.createTimeActivityOld = QuickBooks.prototype.createTimeActivity
+/**
+ * Creates the TimeActivity in QuickBooks
+ *
+ * @param  {object} timeActivity - The unsaved timeActivity, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createTimeActivity = promisify(QuickBooks.prototype.createTimeActivityOld)
 
-QuickBooks.prototype.createTransferOld = QuickBooks.prototype.createTransfer
+/**
+ * Creates the Transfer in QuickBooks
+ *
+ * @param  {object} transfer - The unsaved Transfer, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createTransfer = promisify(QuickBooks.prototype.createTransferOld)
 
-QuickBooks.prototype.createVendorOld = QuickBooks.prototype.createVendor
+/**
+ * Creates the Vendor in QuickBooks
+ *
+ * @param  {object} vendor - The unsaved vendor, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createVendor = promisify(QuickBooks.prototype.createVendorOld)
 
-QuickBooks.prototype.createVendorCreditOld = QuickBooks.prototype.createVendorCredit
+/**
+ * Creates the VendorCredit in QuickBooks
+ *
+ * @param  {object} vendorCredit - The unsaved vendorCredit, to be persisted in QuickBooks
+ */
 QuickBooks.prototype.createVendorCredit = promisify(QuickBooks.prototype.createVendorCreditOld)
 
-QuickBooks.prototype.getAccountOld = QuickBooks.prototype.getAccount
+/**
+ * Retrieves the Account from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Account
+ */
 QuickBooks.prototype.getAccount = promisify(QuickBooks.prototype.getAccountOld)
 
-QuickBooks.prototype.getAttachableOld = QuickBooks.prototype.getAttachable
+/**
+ * Retrieves the Attachable from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Attachable
+ */
 QuickBooks.prototype.getAttachable = promisify(QuickBooks.prototype.getAttachableOld)
 
-QuickBooks.prototype.getBillOld = QuickBooks.prototype.getBill
+/**
+ * Retrieves the Bill from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Bill
+ */
 QuickBooks.prototype.getBill = promisify(QuickBooks.prototype.getBillOld)
 
-QuickBooks.prototype.getBillPaymentOld = QuickBooks.prototype.getBillPayment
+/**
+ * Retrieves the BillPayment from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent BillPayment
+ */
 QuickBooks.prototype.getBillPayment = promisify(QuickBooks.prototype.getBillPaymentOld)
 
-QuickBooks.prototype.getClassOld = QuickBooks.prototype.getClass
+/**
+ * Retrieves the Class from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Class
+ */
 QuickBooks.prototype.getClass = promisify(QuickBooks.prototype.getClassOld)
 
-QuickBooks.prototype.getCompanyInfoOld = QuickBooks.prototype.getCompanyInfo
+/**
+ * Retrieves the CompanyInfo from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent CompanyInfo
+ */
 QuickBooks.prototype.getCompanyInfo = promisify(QuickBooks.prototype.getCompanyInfoOld)
 
-QuickBooks.prototype.getCreditMemoOld = QuickBooks.prototype.getCreditMemo
+/**
+ * Retrieves the CreditMemo from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent CreditMemo
+ */
 QuickBooks.prototype.getCreditMemo = promisify(QuickBooks.prototype.getCreditMemoOld)
 
-QuickBooks.prototype.getCustomerOld = QuickBooks.prototype.getCustomer
+/**
+ * Retrieves the Customer from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Customer
+ */
 QuickBooks.prototype.getCustomer = promisify(QuickBooks.prototype.getCustomerOld)
 
-QuickBooks.prototype.getDepartmentOld = QuickBooks.prototype.getDepartment
+/**
+ * Retrieves the Department from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Department
+ */
 QuickBooks.prototype.getDepartment = promisify(QuickBooks.prototype.getDepartmentOld)
 
-QuickBooks.prototype.getDepositOld = QuickBooks.prototype.getDeposit
+/**
+ * Retrieves the Deposit from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Deposit
+ */
 QuickBooks.prototype.getDeposit = promisify(QuickBooks.prototype.getDepositOld)
 
-QuickBooks.prototype.getEmployeeOld = QuickBooks.prototype.getEmployee
+/**
+ * Retrieves the Employee from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Employee
+ */
 QuickBooks.prototype.getEmployee = promisify(QuickBooks.prototype.getEmployeeOld)
 
-QuickBooks.prototype.getEstimateOld = QuickBooks.prototype.getEstimate
+/**
+ * Retrieves the Estimate from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Estimate
+ */
 QuickBooks.prototype.getEstimate = promisify(QuickBooks.prototype.getEstimateOld)
 
-QuickBooks.prototype.getExchangeRateOld = QuickBooks.prototype.getExchangeRate
+/**
+ * Retrieves an ExchangeRate from QuickBooks
+ *
+ * @param  {object} options - An object with options including the required `sourcecurrencycode` parameter and optional `asofdate` parameter.
+ */
 QuickBooks.prototype.getExchangeRate = promisify(QuickBooks.prototype.getExchangeRateOld)
 
-QuickBooks.prototype.getEstimatePdfOld = QuickBooks.prototype.getEstimatePdf
+/**
+ * Retrieves the Estimate PDF from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Estimate
+ */
 QuickBooks.prototype.getEstimatePdf = promisify(QuickBooks.prototype.getEstimatePdfOld)
 
-QuickBooks.prototype.sendEstimatePdfOld = QuickBooks.prototype.sendEstimatePdf
+/**
+ * Emails the Estimate PDF from QuickBooks to the address supplied in Estimate.BillEmail.EmailAddress
+ * or the specified 'sendTo' address
+ *
+ * @param  {string} Id - The Id of persistent Estimate
+ * @param  {string} sendTo - optional email address to send the PDF to. If not provided, address supplied in Estimate.BillEmail.EmailAddress will be used
+ */
 QuickBooks.prototype.sendEstimatePdf = promisify(QuickBooks.prototype.sendEstimatePdfOld)
 
-QuickBooks.prototype.getInvoiceOld = QuickBooks.prototype.getInvoice
+/**
+ * Retrieves the Invoice from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Invoice
+ */
 QuickBooks.prototype.getInvoice = promisify(QuickBooks.prototype.getInvoiceOld)
 
-QuickBooks.prototype.getInvoicePdfOld = QuickBooks.prototype.getInvoicePdf
+/**
+ * Retrieves the Invoice PDF from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Invoice
+ */
 QuickBooks.prototype.getInvoicePdf = promisify(QuickBooks.prototype.getInvoicePdfOld)
 
-QuickBooks.prototype.sendInvoicePdfOld = QuickBooks.prototype.sendInvoicePdf
+/**
+ * Emails the Invoice PDF from QuickBooks to the address supplied in Invoice.BillEmail.EmailAddress
+ * or the specified 'sendTo' address
+ *
+ * @param  {string} Id - The Id of persistent Invoice
+ * @param  {string} sendTo - optional email address to send the PDF to. If not provided, address supplied in Invoice.BillEmail.EmailAddress will be used
+ */
 QuickBooks.prototype.sendInvoicePdf = promisify(QuickBooks.prototype.sendInvoicePdfOld)
 
-QuickBooks.prototype.getItemOld = QuickBooks.prototype.getItem
+/**
+ * Retrieves the Item from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Item
+ */
 QuickBooks.prototype.getItem = promisify(QuickBooks.prototype.getItemOld)
 
-QuickBooks.prototype.getJournalCodeOld = QuickBooks.prototype.getJournalCode
+/**
+ * Retrieves the JournalCode from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent JournalCode
+ */
 QuickBooks.prototype.getJournalCode = promisify(QuickBooks.prototype.getJournalCodeOld)
 
-QuickBooks.prototype.getJournalEntryOld = QuickBooks.prototype.getJournalEntry
+/**
+ * Retrieves the JournalEntry from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent JournalEntry
+ */
 QuickBooks.prototype.getJournalEntry = promisify(QuickBooks.prototype.getJournalEntryOld)
 
-QuickBooks.prototype.getPaymentOld = QuickBooks.prototype.getPayment
+/**
+ * Retrieves the Payment from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Payment
+ */
 QuickBooks.prototype.getPayment = promisify(QuickBooks.prototype.getPaymentOld)
 
-QuickBooks.prototype.getPaymentMethodOld = QuickBooks.prototype.getPaymentMethod
+/**
+ * Retrieves the PaymentMethod from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent PaymentMethod
+ */
 QuickBooks.prototype.getPaymentMethod = promisify(QuickBooks.prototype.getPaymentMethodOld)
 
-QuickBooks.prototype.getPreferencesOld = QuickBooks.prototype.getPreferences
+/**
+ * Retrieves the Preferences from QuickBooks
+ *
+ */
 QuickBooks.prototype.getPreferences = promisify(QuickBooks.prototype.getPreferencesOld)
 
-QuickBooks.prototype.getPurchaseOld = QuickBooks.prototype.getPurchase
+/**
+ * Retrieves the Purchase from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Purchase
+ */
 QuickBooks.prototype.getPurchase = promisify(QuickBooks.prototype.getPurchaseOld)
 
-QuickBooks.prototype.getPurchaseOrderOld = QuickBooks.prototype.getPurchaseOrder
+/**
+ * Retrieves the PurchaseOrder from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent PurchaseOrder
+ */
 QuickBooks.prototype.getPurchaseOrder = promisify(QuickBooks.prototype.getPurchaseOrderOld)
 
-QuickBooks.prototype.getRefundReceiptOld = QuickBooks.prototype.getRefundReceipt
+/**
+ * Retrieves the RefundReceipt from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent RefundReceipt
+ */
 QuickBooks.prototype.getRefundReceipt = promisify(QuickBooks.prototype.getRefundReceiptOld)
 
-QuickBooks.prototype.getReportsOld = QuickBooks.prototype.getReports
+/**
+ * Retrieves the Reports from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Reports
+ */
 QuickBooks.prototype.getReports = promisify(QuickBooks.prototype.getReportsOld)
 
-QuickBooks.prototype.getSalesReceiptOld = QuickBooks.prototype.getSalesReceipt
+/**
+ * Retrieves the SalesReceipt from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent SalesReceipt
+ */
 QuickBooks.prototype.getSalesReceipt = promisify(QuickBooks.prototype.getSalesReceiptOld)
 
-QuickBooks.prototype.getSalesReceiptPdfOld = QuickBooks.prototype.getSalesReceiptPdf
+/**
+ * Retrieves the SalesReceipt PDF from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent SalesReceipt
+ */
 QuickBooks.prototype.getSalesReceiptPdf = promisify(QuickBooks.prototype.getSalesReceiptPdfOld)
 
-QuickBooks.prototype.sendSalesReceiptPdfOld = QuickBooks.prototype.sendSalesReceiptPdf
+/**
+ * Emails the SalesReceipt PDF from QuickBooks to the address supplied in SalesReceipt.BillEmail.EmailAddress
+ * or the specified 'sendTo' address
+ *
+ * @param  {string} Id - The Id of persistent SalesReceipt
+ * @param  {string} sendTo - optional email address to send the PDF to. If not provided, address supplied in SalesReceipt.BillEmail.EmailAddress will be used
+ */
 QuickBooks.prototype.sendSalesReceiptPdf = promisify(QuickBooks.prototype.sendSalesReceiptPdfOld)
 
-QuickBooks.prototype.getTaxAgencyOld = QuickBooks.prototype.getTaxAgency
+/**
+ * Retrieves the TaxAgency from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent TaxAgency
+ */
 QuickBooks.prototype.getTaxAgency = promisify(QuickBooks.prototype.getTaxAgencyOld)
 
-QuickBooks.prototype.getTaxCodeOld = QuickBooks.prototype.getTaxCode
+/**
+ * Retrieves the TaxCode from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent TaxCode
+ */
 QuickBooks.prototype.getTaxCode = promisify(QuickBooks.prototype.getTaxCodeOld)
 
-QuickBooks.prototype.getTaxRateOld = QuickBooks.prototype.getTaxRate
+/**
+ * Retrieves the TaxRate from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent TaxRate
+ */
 QuickBooks.prototype.getTaxRate = promisify(QuickBooks.prototype.getTaxRateOld)
 
-QuickBooks.prototype.getTermOld = QuickBooks.prototype.getTerm
+/**
+ * Retrieves the Term from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Term
+ */
 QuickBooks.prototype.getTerm = promisify(QuickBooks.prototype.getTermOld)
 
-QuickBooks.prototype.getTimeActivityOld = QuickBooks.prototype.getTimeActivity
+/**
+ * Retrieves the TimeActivity from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent TimeActivity
+ */
 QuickBooks.prototype.getTimeActivity = promisify(QuickBooks.prototype.getTimeActivityOld)
 
-QuickBooks.prototype.getTransferOld = QuickBooks.prototype.getTransfer
+/**
+ * Retrieves the Transfer from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Term
+ */
 QuickBooks.prototype.getTransfer = promisify(QuickBooks.prototype.getTransferOld)
 
-QuickBooks.prototype.getVendorOld = QuickBooks.prototype.getVendor
+/**
+ * Retrieves the Vendor from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent Vendor
+ */
 QuickBooks.prototype.getVendor = promisify(QuickBooks.prototype.getVendorOld)
 
-QuickBooks.prototype.getVendorCreditOld = QuickBooks.prototype.getVendorCredit
+/**
+ * Retrieves the VendorCredit from QuickBooks
+ *
+ * @param  {string} Id - The Id of persistent VendorCredit
+ */
 QuickBooks.prototype.getVendorCredit = promisify(QuickBooks.prototype.getVendorCreditOld)
 
-QuickBooks.prototype.updateAccountOld = QuickBooks.prototype.updateAccount
+/**
+ * Updates QuickBooks version of Account
+ *
+ * @param  {object} account - The persistent Account, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateAccount = promisify(QuickBooks.prototype.updateAccountOld)
 
-QuickBooks.prototype.updateAttachableOld = QuickBooks.prototype.updateAttachable
+/**
+ * Updates QuickBooks version of Attachable
+ *
+ * @param  {object} attachable - The persistent Attachable, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateAttachable = promisify(QuickBooks.prototype.updateAttachableOld)
 
-QuickBooks.prototype.updateBillOld = QuickBooks.prototype.updateBill
+/**
+ * Updates QuickBooks version of Bill
+ *
+ * @param  {object} bill - The persistent Bill, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateBill = promisify(QuickBooks.prototype.updateBillOld)
 
-QuickBooks.prototype.updateBillPaymentOld = QuickBooks.prototype.updateBillPayment
+/**
+ * Updates QuickBooks version of BillPayment
+ *
+ * @param  {object} billPayment - The persistent BillPayment, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateBillPayment = promisify(QuickBooks.prototype.updateBillPaymentOld)
 
-QuickBooks.prototype.updateClassOld = QuickBooks.prototype.updateClass
+/**
+ * Updates QuickBooks version of Class
+ *
+ * @param  {object} class - The persistent Class, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateClass = promisify(QuickBooks.prototype.updateClassOld)
 
-QuickBooks.prototype.updateCompanyInfoOld = QuickBooks.prototype.updateCompanyInfo
+/**
+ * Updates QuickBooks version of CompanyInfo
+ *
+ * @param  {object} companyInfo - The persistent CompanyInfo, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateCompanyInfo = promisify(QuickBooks.prototype.updateCompanyInfoOld)
 
-QuickBooks.prototype.updateCreditMemoOld = QuickBooks.prototype.updateCreditMemo
+/**
+ * Updates QuickBooks version of CreditMemo
+ *
+ * @param  {object} creditMemo - The persistent CreditMemo, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateCreditMemo = promisify(QuickBooks.prototype.updateCreditMemoOld)
 
-QuickBooks.prototype.updateCustomerOld = QuickBooks.prototype.updateCustomer
+/**
+ * Updates QuickBooks version of Customer
+ *
+ * @param  {object} customer - The persistent Customer, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateCustomer = promisify(QuickBooks.prototype.updateCustomerOld)
 
-QuickBooks.prototype.updateDepartmentOld = QuickBooks.prototype.updateDepartment
+/**
+ * Updates QuickBooks version of Department
+ *
+ * @param  {object} department - The persistent Department, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateDepartment = promisify(QuickBooks.prototype.updateDepartmentOld)
 
-QuickBooks.prototype.updateDepositOld = QuickBooks.prototype.updateDeposit
+/**
+ * Updates QuickBooks version of Deposit
+ *
+ * @param  {object} deposit - The persistent Deposit, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateDeposit = promisify(QuickBooks.prototype.updateDepositOld)
 
-QuickBooks.prototype.updateEmployeeOld = QuickBooks.prototype.updateEmployee
+/**
+ * Updates QuickBooks version of Employee
+ *
+ * @param  {object} employee - The persistent Employee, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateEmployee = promisify(QuickBooks.prototype.updateEmployeeOld)
 
-QuickBooks.prototype.updateEstimateOld = QuickBooks.prototype.updateEstimate
+/**
+ * Updates QuickBooks version of Estimate
+ *
+ * @param  {object} estimate - The persistent Estimate, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateEstimate = promisify(QuickBooks.prototype.updateEstimateOld)
 
-QuickBooks.prototype.updateInvoiceOld = QuickBooks.prototype.updateInvoice
+/**
+ * Updates QuickBooks version of Invoice
+ *
+ * @param  {object} invoice - The persistent Invoice, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateInvoice = promisify(QuickBooks.prototype.updateInvoiceOld)
 
-QuickBooks.prototype.updateItemOld = QuickBooks.prototype.updateItem
+/**
+ * Updates QuickBooks version of Item
+ *
+ * @param  {object} item - The persistent Item, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateItem = promisify(QuickBooks.prototype.updateItemOld)
 
-QuickBooks.prototype.updateJournalCodeOld = QuickBooks.prototype.updateJournalCode
+/**
+ * Updates QuickBooks version of JournalCode
+ *
+ * @param  {object} journalCode - The persistent JournalCode, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateJournalCode = promisify(QuickBooks.prototype.updateJournalCodeOld)
 
-QuickBooks.prototype.updateJournalEntryOld = QuickBooks.prototype.updateJournalEntry
+/**
+ * Updates QuickBooks version of JournalEntry
+ *
+ * @param  {object} journalEntry - The persistent JournalEntry, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateJournalEntry = promisify(QuickBooks.prototype.updateJournalEntryOld)
 
-QuickBooks.prototype.updatePaymentOld = QuickBooks.prototype.updatePayment
+/**
+ * Updates QuickBooks version of Payment
+ *
+ * @param  {object} payment - The persistent Payment, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updatePayment = promisify(QuickBooks.prototype.updatePaymentOld)
 
-QuickBooks.prototype.updatePaymentMethodOld = QuickBooks.prototype.updatePaymentMethod
+/**
+ * Updates QuickBooks version of PaymentMethod
+ *
+ * @param  {object} paymentMethod - The persistent PaymentMethod, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updatePaymentMethod = promisify(QuickBooks.prototype.updatePaymentMethodOld)
 
-QuickBooks.prototype.updatePreferencesOld = QuickBooks.prototype.updatePreferences
+/**
+ * Updates QuickBooks version of Preferences
+ *
+ * @param  {object} preferences - The persistent Preferences, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updatePreferences = promisify(QuickBooks.prototype.updatePreferencesOld)
 
-QuickBooks.prototype.updatePurchaseOld = QuickBooks.prototype.updatePurchase
+/**
+ * Updates QuickBooks version of Purchase
+ *
+ * @param  {object} purchase - The persistent Purchase, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updatePurchase = promisify(QuickBooks.prototype.updatePurchaseOld)
 
-QuickBooks.prototype.updatePurchaseOrderOld = QuickBooks.prototype.updatePurchaseOrder
+/**
+ * Updates QuickBooks version of PurchaseOrder
+ *
+ * @param  {object} purchaseOrder - The persistent PurchaseOrder, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updatePurchaseOrder = promisify(QuickBooks.prototype.updatePurchaseOrderOld)
 
-QuickBooks.prototype.updateRefundReceiptOld = QuickBooks.prototype.updateRefundReceipt
+/**
+ * Updates QuickBooks version of RefundReceipt
+ *
+ * @param  {object} refundReceipt - The persistent RefundReceipt, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateRefundReceipt = promisify(QuickBooks.prototype.updateRefundReceiptOld)
 
-QuickBooks.prototype.updateSalesReceiptOld = QuickBooks.prototype.updateSalesReceipt
+/**
+ * Updates QuickBooks version of SalesReceipt
+ *
+ * @param  {object} salesReceipt - The persistent SalesReceipt, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateSalesReceipt = promisify(QuickBooks.prototype.updateSalesReceiptOld)
 
-QuickBooks.prototype.updateTaxAgencyOld = QuickBooks.prototype.updateTaxAgency
+/**
+ * Updates QuickBooks version of TaxAgency
+ *
+ * @param  {object} taxAgency - The persistent TaxAgency, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateTaxAgency = promisify(QuickBooks.prototype.updateTaxAgencyOld)
 
-QuickBooks.prototype.updateTaxCodeOld = QuickBooks.prototype.updateTaxCode
+/**
+ * Updates QuickBooks version of TaxCode
+ *
+ * @param  {object} taxCode - The persistent TaxCode, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateTaxCode = promisify(QuickBooks.prototype.updateTaxCodeOld)
 
-QuickBooks.prototype.updateTaxRateOld = QuickBooks.prototype.updateTaxRate
+/**
+ * Updates QuickBooks version of TaxRate
+ *
+ * @param  {object} taxRate - The persistent TaxRate, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateTaxRate = promisify(QuickBooks.prototype.updateTaxRateOld)
 
-QuickBooks.prototype.updateTermOld = QuickBooks.prototype.updateTerm
+/**
+ * Updates QuickBooks version of Term
+ *
+ * @param  {object} term - The persistent Term, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateTerm = promisify(QuickBooks.prototype.updateTermOld)
 
-QuickBooks.prototype.updateTimeActivityOld = QuickBooks.prototype.updateTimeActivity
+/**
+ * Updates QuickBooks version of TimeActivity
+ *
+ * @param  {object} timeActivity - The persistent TimeActivity, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateTimeActivity = promisify(QuickBooks.prototype.updateTimeActivityOld)
 
-QuickBooks.prototype.updateTransferOld = QuickBooks.prototype.updateTransfer
+/**
+ * Updates QuickBooks version of Transfer
+ *
+ * @param  {object} Transfer - The persistent Transfer, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateTransfer = promisify(QuickBooks.prototype.updateTransferOld)
 
-QuickBooks.prototype.updateVendorOld = QuickBooks.prototype.updateVendor
+/**
+ * Updates QuickBooks version of Vendor
+ *
+ * @param  {object} vendor - The persistent Vendor, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateVendor = promisify(QuickBooks.prototype.updateVendorOld)
 
-QuickBooks.prototype.updateVendorCreditOld = QuickBooks.prototype.updateVendorCredit
+/**
+ * Updates QuickBooks version of VendorCredit
+ *
+ * @param  {object} vendorCredit - The persistent VendorCredit, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateVendorCredit = promisify(QuickBooks.prototype.updateVendorCreditOld)
 
-QuickBooks.prototype.updateExchangeRateOld = QuickBooks.prototype.updateExchangeRate
+/**
+ * Updates QuickBooks version of ExchangeRate
+ *
+ * @param  {object} exchangeRate - The persistent ExchangeRate, including Id and SyncToken fields
+ */
 QuickBooks.prototype.updateExchangeRate = promisify(QuickBooks.prototype.updateExchangeRateOld)
 
-QuickBooks.prototype.deleteAttachableOld = QuickBooks.prototype.deleteAttachable
+/**
+ * Deletes the Attachable from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Attachable to be deleted, or the Id of the Attachable, in which case an extra GET request will be issued to first retrieve the Attachable
+ */
 QuickBooks.prototype.deleteAttachable = promisify(QuickBooks.prototype.deleteAttachableOld)
 
-QuickBooks.prototype.deleteBillOld = QuickBooks.prototype.deleteBill
+/**
+ * Deletes the Bill from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Bill to be deleted, or the Id of the Bill, in which case an extra GET request will be issued to first retrieve the Bill
+ */
 QuickBooks.prototype.deleteBill = promisify(QuickBooks.prototype.deleteBillOld)
 
-QuickBooks.prototype.deleteBillPaymentOld = QuickBooks.prototype.deleteBillPayment
+/**
+ * Deletes the BillPayment from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent BillPayment to be deleted, or the Id of the BillPayment, in which case an extra GET request will be issued to first retrieve the BillPayment
+ */
 QuickBooks.prototype.deleteBillPayment = promisify(QuickBooks.prototype.deleteBillPaymentOld)
 
-QuickBooks.prototype.deleteCreditMemoOld = QuickBooks.prototype.deleteCreditMemo
+/**
+ * Deletes the CreditMemo from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent CreditMemo to be deleted, or the Id of the CreditMemo, in which case an extra GET request will be issued to first retrieve the CreditMemo
+ */
 QuickBooks.prototype.deleteCreditMemo = promisify(QuickBooks.prototype.deleteCreditMemoOld)
 
-QuickBooks.prototype.deleteDepositOld = QuickBooks.prototype.deleteDeposit
+/**
+ * Deletes the Deposit from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Deposit to be deleted, or the Id of the Deposit, in which case an extra GET request will be issued to first retrieve the Deposit
+ */
 QuickBooks.prototype.deleteDeposit = promisify(QuickBooks.prototype.deleteDepositOld)
 
-QuickBooks.prototype.deleteEstimateOld = QuickBooks.prototype.deleteEstimate
+/**
+ * Deletes the Estimate from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Estimate to be deleted, or the Id of the Estimate, in which case an extra GET request will be issued to first retrieve the Estimate
+ */
 QuickBooks.prototype.deleteEstimate = promisify(QuickBooks.prototype.deleteEstimateOld)
 
-QuickBooks.prototype.deleteInvoiceOld = QuickBooks.prototype.deleteInvoice
+/**
+ * Deletes the Invoice from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Invoice to be deleted, or the Id of the Invoice, in which case an extra GET request will be issued to first retrieve the Invoice
+ */
 QuickBooks.prototype.deleteInvoice = promisify(QuickBooks.prototype.deleteInvoiceOld)
 
-QuickBooks.prototype.deleteJournalCodeOld = QuickBooks.prototype.deleteJournalCode
+/**
+ * Deletes the JournalCode from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent JournalCode to be deleted, or the Id of the JournalCode, in which case an extra GET request will be issued to first retrieve the JournalCode
+ */
 QuickBooks.prototype.deleteJournalCode = promisify(QuickBooks.prototype.deleteJournalCodeOld)
 
-QuickBooks.prototype.deleteJournalEntryOld = QuickBooks.prototype.deleteJournalEntry
+/**
+ * Deletes the JournalEntry from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent JournalEntry to be deleted, or the Id of the JournalEntry, in which case an extra GET request will be issued to first retrieve the JournalEntry
+ */
 QuickBooks.prototype.deleteJournalEntry = promisify(QuickBooks.prototype.deleteJournalEntryOld)
 
-QuickBooks.prototype.deletePaymentOld = QuickBooks.prototype.deletePayment
+/**
+ * Deletes the Payment from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Payment to be deleted, or the Id of the Payment, in which case an extra GET request will be issued to first retrieve the Payment
+ */
 QuickBooks.prototype.deletePayment = promisify(QuickBooks.prototype.deletePaymentOld)
 
-QuickBooks.prototype.deletePurchaseOld = QuickBooks.prototype.deletePurchase
+/**
+ * Deletes the Purchase from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Purchase to be deleted, or the Id of the Purchase, in which case an extra GET request will be issued to first retrieve the Purchase
+ */
 QuickBooks.prototype.deletePurchase = promisify(QuickBooks.prototype.deletePurchaseOld)
 
-QuickBooks.prototype.deletePurchaseOrderOld = QuickBooks.prototype.deletePurchaseOrder
+/**
+ * Deletes the PurchaseOrder from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent PurchaseOrder to be deleted, or the Id of the PurchaseOrder, in which case an extra GET request will be issued to first retrieve the PurchaseOrder
+ */
 QuickBooks.prototype.deletePurchaseOrder = promisify(QuickBooks.prototype.deletePurchaseOrderOld)
 
-QuickBooks.prototype.deleteRefundReceiptOld = QuickBooks.prototype.deleteRefundReceipt
+/**
+ * Deletes the RefundReceipt from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent RefundReceipt to be deleted, or the Id of the RefundReceipt, in which case an extra GET request will be issued to first retrieve the RefundReceipt
+ */
 QuickBooks.prototype.deleteRefundReceipt = promisify(QuickBooks.prototype.deleteRefundReceiptOld)
 
-QuickBooks.prototype.deleteSalesReceiptOld = QuickBooks.prototype.deleteSalesReceipt
+/**
+ * Deletes the SalesReceipt from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent SalesReceipt to be deleted, or the Id of the SalesReceipt, in which case an extra GET request will be issued to first retrieve the SalesReceipt
+ */
 QuickBooks.prototype.deleteSalesReceipt = promisify(QuickBooks.prototype.deleteSalesReceiptOld)
 
-QuickBooks.prototype.deleteTimeActivityOld = QuickBooks.prototype.deleteTimeActivity
+/**
+ * Deletes the TimeActivity from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent TimeActivity to be deleted, or the Id of the TimeActivity, in which case an extra GET request will be issued to first retrieve the TimeActivity
+ */
 QuickBooks.prototype.deleteTimeActivity = promisify(QuickBooks.prototype.deleteTimeActivityOld)
 
-QuickBooks.prototype.deleteTransferOld = QuickBooks.prototype.deleteTransfer
+/**
+ * Deletes the Transfer from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Transfer to be deleted, or the Id of the Transfer, in which case an extra GET request will be issued to first retrieve the Transfer
+ */
 QuickBooks.prototype.deleteTransfer = promisify(QuickBooks.prototype.deleteTransferOld)
 
-QuickBooks.prototype.deleteVendorCreditOld = QuickBooks.prototype.deleteVendorCredit
+/**
+ * Deletes the VendorCredit from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent VendorCredit to be deleted, or the Id of the VendorCredit, in which case an extra GET request will be issued to first retrieve the VendorCredit
+ */
 QuickBooks.prototype.deleteVendorCredit = promisify(QuickBooks.prototype.deleteVendorCreditOld)
 
-QuickBooks.prototype.voidInvoiceOld = QuickBooks.prototype.voidInvoice
+/**
+ * Voids the Invoice from QuickBooks
+ *
+ * @param  {object} idOrEntity - The persistent Invoice to be voided, or the Id of the Invoice, in which case an extra GET request will be issued to first retrieve the Invoice
+ */
 QuickBooks.prototype.voidInvoice = promisify(QuickBooks.prototype.voidInvoiceOld)
 
-QuickBooks.prototype.voidPaymentOld = QuickBooks.prototype.voidPayment
+/**
+ * Voids QuickBooks version of Payment
+ *
+ * @param  {object} payment - The persistent Payment, including Id and SyncToken fields
+ */
 QuickBooks.prototype.voidPayment = promisify(QuickBooks.prototype.voidPaymentOld)
 
-QuickBooks.prototype.findAccountsOld = QuickBooks.prototype.findAccounts
+/**
+ * Finds all Accounts in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findAccounts = promisify(QuickBooks.prototype.findAccountsOld)
 
-QuickBooks.prototype.findAttachablesOld = QuickBooks.prototype.findAttachables
+/**
+ * Finds all Attachables in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findAttachables = promisify(QuickBooks.prototype.findAttachablesOld)
 
-QuickBooks.prototype.findBillsOld = QuickBooks.prototype.findBills
+/**
+ * Finds all Bills in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findBills = promisify(QuickBooks.prototype.findBillsOld)
 
-QuickBooks.prototype.findBillPaymentsOld = QuickBooks.prototype.findBillPayments
+/**
+ * Finds all BillPayments in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findBillPayments = promisify(QuickBooks.prototype.findBillPaymentsOld)
 
-QuickBooks.prototype.findBudgetsOld = QuickBooks.prototype.findBudgets
+/**
+ * Finds all Budgets in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findBudgets = promisify(QuickBooks.prototype.findBudgetsOld)
 
-QuickBooks.prototype.findClassesOld = QuickBooks.prototype.findClasses
+/**
+ * Finds all Classs in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findClasses = promisify(QuickBooks.prototype.findClassesOld)
 
-QuickBooks.prototype.findCompanyInfosOld = QuickBooks.prototype.findCompanyInfos
+/**
+ * Finds all CompanyInfos in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findCompanyInfos = promisify(QuickBooks.prototype.findCompanyInfosOld)
 
-QuickBooks.prototype.findCreditMemosOld = QuickBooks.prototype.findCreditMemos
+/**
+ * Finds all CreditMemos in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findCreditMemos = promisify(QuickBooks.prototype.findCreditMemosOld)
 
-QuickBooks.prototype.findCustomersOld = QuickBooks.prototype.findCustomers
+/**
+ * Finds all Customers in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findCustomers = promisify(QuickBooks.prototype.findCustomersOld)
 
-QuickBooks.prototype.findDepartmentsOld = QuickBooks.prototype.findDepartments
+/**
+ * Finds all Departments in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findDepartments = promisify(QuickBooks.prototype.findDepartmentsOld)
 
-QuickBooks.prototype.findDepositsOld = QuickBooks.prototype.findDeposits
+/**
+ * Finds all Deposits in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findDeposits = promisify(QuickBooks.prototype.findDepositsOld)
 
-QuickBooks.prototype.findEmployeesOld = QuickBooks.prototype.findEmployees
+/**
+ * Finds all Employees in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findEmployees = promisify(QuickBooks.prototype.findEmployeesOld)
 
-QuickBooks.prototype.findEstimatesOld = QuickBooks.prototype.findEstimates
+/**
+ * Finds all Estimates in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findEstimates = promisify(QuickBooks.prototype.findEstimatesOld)
 
-QuickBooks.prototype.findInvoicesOld = QuickBooks.prototype.findInvoices
+/**
+ * Finds all Invoices in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findInvoices = promisify(QuickBooks.prototype.findInvoicesOld)
 
-QuickBooks.prototype.findItemsOld = QuickBooks.prototype.findItems
+/**
+ * Finds all Items in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findItems = promisify(QuickBooks.prototype.findItemsOld)
 
-QuickBooks.prototype.findJournalCodesOld = QuickBooks.prototype.findJournalCodes
+/**
+ * Finds all JournalCodes in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findJournalCodes = promisify(QuickBooks.prototype.findJournalCodesOld)
 
-QuickBooks.prototype.findJournalEntriesOld = QuickBooks.prototype.findJournalEntries
+/**
+ * Finds all JournalEntrys in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findJournalEntries = promisify(QuickBooks.prototype.findJournalEntriesOld)
 
-QuickBooks.prototype.findPaymentsOld = QuickBooks.prototype.findPayments
+/**
+ * Finds all Payments in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findPayments = promisify(QuickBooks.prototype.findPaymentsOld)
 
-QuickBooks.prototype.findPaymentMethodsOld = QuickBooks.prototype.findPaymentMethods
+/**
+ * Finds all PaymentMethods in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findPaymentMethods = promisify(QuickBooks.prototype.findPaymentMethodsOld)
 
-QuickBooks.prototype.findPreferencesesOld = QuickBooks.prototype.findPreferenceses
+/**
+ * Finds all Preferencess in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findPreferenceses = promisify(QuickBooks.prototype.findPreferencesesOld)
 
-QuickBooks.prototype.findPurchasesOld = QuickBooks.prototype.findPurchases
+/**
+ * Finds all Purchases in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findPurchases = promisify(QuickBooks.prototype.findPurchasesOld)
 
-QuickBooks.prototype.findPurchaseOrdersOld = QuickBooks.prototype.findPurchaseOrders
+/**
+ * Finds all PurchaseOrders in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findPurchaseOrders = promisify(QuickBooks.prototype.findPurchaseOrdersOld)
 
-QuickBooks.prototype.findRefundReceiptsOld = QuickBooks.prototype.findRefundReceipts
+/**
+ * Finds all RefundReceipts in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findRefundReceipts = promisify(QuickBooks.prototype.findRefundReceiptsOld)
 
-QuickBooks.prototype.findSalesReceiptsOld = QuickBooks.prototype.findSalesReceipts
+/**
+ * Finds all SalesReceipts in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findSalesReceipts = promisify(QuickBooks.prototype.findSalesReceiptsOld)
 
-QuickBooks.prototype.findTaxAgenciesOld = QuickBooks.prototype.findTaxAgencies
+/**
+ * Finds all TaxAgencys in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findTaxAgencies = promisify(QuickBooks.prototype.findTaxAgenciesOld)
 
-QuickBooks.prototype.findTaxCodesOld = QuickBooks.prototype.findTaxCodes
+/**
+ * Finds all TaxCodes in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findTaxCodes = promisify(QuickBooks.prototype.findTaxCodesOld)
 
-QuickBooks.prototype.findTaxRatesOld = QuickBooks.prototype.findTaxRates
+/**
+ * Finds all TaxRates in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findTaxRates = promisify(QuickBooks.prototype.findTaxRatesOld)
 
-QuickBooks.prototype.findTermsOld = QuickBooks.prototype.findTerms
+/**
+ * Finds all Terms in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findTerms = promisify(QuickBooks.prototype.findTermsOld)
 
-QuickBooks.prototype.findTimeActivitiesOld = QuickBooks.prototype.findTimeActivities
+/**
+ * Finds all TimeActivitys in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findTimeActivities = promisify(QuickBooks.prototype.findTimeActivitiesOld)
 
-QuickBooks.prototype.findTransfersOld = QuickBooks.prototype.findTransfers
+/**
+ * Finds all Transfers in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findTransfers = promisify(QuickBooks.prototype.findTransfersOld)
 
-QuickBooks.prototype.findVendorsOld = QuickBooks.prototype.findVendors
+/**
+ * Finds all Vendors in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findVendors = promisify(QuickBooks.prototype.findVendorsOld)
 
-QuickBooks.prototype.findVendorCreditsOld = QuickBooks.prototype.findVendorCredits
+/**
+ * Finds all VendorCredits in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findVendorCredits = promisify(QuickBooks.prototype.findVendorCreditsOld)
 
-QuickBooks.prototype.findExchangeRatesOld = QuickBooks.prototype.findExchangeRates
+/**
+ * Finds all ExchangeRates in QuickBooks, optionally matching the specified criteria
+ *
+ * @param  {object} criteria - (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'"
+ */
 QuickBooks.prototype.findExchangeRates = promisify(QuickBooks.prototype.findExchangeRatesOld)
 
-QuickBooks.prototype.reportBalanceSheetOld = QuickBooks.prototype.reportBalanceSheet
+/**
+ * Retrieves the BalanceSheet Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportBalanceSheet = promisify(QuickBooks.prototype.reportBalanceSheetOld)
 
-QuickBooks.prototype.reportProfitAndLossOld = QuickBooks.prototype.reportProfitAndLoss
+/**
+ * Retrieves the ProfitAndLoss Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportProfitAndLoss = promisify(QuickBooks.prototype.reportProfitAndLossOld)
 
-QuickBooks.prototype.reportProfitAndLossDetailOld = QuickBooks.prototype.reportProfitAndLossDetail
+/**
+ * Retrieves the ProfitAndLossDetail Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportProfitAndLossDetail = promisify(QuickBooks.prototype.reportProfitAndLossDetailOld)
 
-QuickBooks.prototype.reportTrialBalanceOld = QuickBooks.prototype.reportTrialBalance
+/**
+ * Retrieves the TrialBalance Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportTrialBalance = promisify(QuickBooks.prototype.reportTrialBalanceOld)
 
-QuickBooks.prototype.reportCashFlowOld = QuickBooks.prototype.reportCashFlow
+/**
+ * Retrieves the CashFlow Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportCashFlow = promisify(QuickBooks.prototype.reportCashFlowOld)
 
-QuickBooks.prototype.reportInventoryValuationSummaryOld = QuickBooks.prototype.reportInventoryValuationSummary
+/**
+ * Retrieves the InventoryValuationSummary Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportInventoryValuationSummary = promisify(QuickBooks.prototype.reportInventoryValuationSummaryOld)
 
-QuickBooks.prototype.reportCustomerSalesOld = QuickBooks.prototype.reportCustomerSales
+/**
+ * Retrieves the CustomerSales Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportCustomerSales = promisify(QuickBooks.prototype.reportCustomerSalesOld)
 
-QuickBooks.prototype.reportItemSalesOld = QuickBooks.prototype.reportItemSales
+/**
+ * Retrieves the ItemSales Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportItemSales = promisify(QuickBooks.prototype.reportItemSalesOld)
 
-QuickBooks.prototype.reportCustomerIncomeOld = QuickBooks.prototype.reportCustomerIncome
+/**
+ * Retrieves the CustomerIncome Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportCustomerIncome = promisify(QuickBooks.prototype.reportCustomerIncomeOld)
 
-QuickBooks.prototype.reportCustomerBalanceOld = QuickBooks.prototype.reportCustomerBalance
+/**
+ * Retrieves the CustomerBalance Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportCustomerBalance = promisify(QuickBooks.prototype.reportCustomerBalanceOld)
 
-QuickBooks.prototype.reportCustomerBalanceDetailOld = QuickBooks.prototype.reportCustomerBalanceDetail
+/**
+ * Retrieves the CustomerBalanceDetail Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportCustomerBalanceDetail = promisify(QuickBooks.prototype.reportCustomerBalanceDetailOld)
 
-QuickBooks.prototype.reportAgedReceivablesOld = QuickBooks.prototype.reportAgedReceivables
+/**
+ * Retrieves the AgedReceivables Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportAgedReceivables = promisify(QuickBooks.prototype.reportAgedReceivablesOld)
 
-QuickBooks.prototype.reportAgedReceivableDetailOld = QuickBooks.prototype.reportAgedReceivableDetail
+/**
+ * Retrieves the AgedReceivableDetail Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportAgedReceivableDetail = promisify(QuickBooks.prototype.reportAgedReceivableDetailOld)
 
-QuickBooks.prototype.reportVendorBalanceOld = QuickBooks.prototype.reportVendorBalance
+/**
+ * Retrieves the VendorBalance Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportVendorBalance = promisify(QuickBooks.prototype.reportVendorBalanceOld)
 
-QuickBooks.prototype.reportVendorBalanceDetailOld = QuickBooks.prototype.reportVendorBalanceDetail
+/**
+ * Retrieves the VendorBalanceDetail Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportVendorBalanceDetail = promisify(QuickBooks.prototype.reportVendorBalanceDetailOld)
 
-QuickBooks.prototype.reportAgedPayablesOld = QuickBooks.prototype.reportAgedPayables
+/**
+ * Retrieves the AgedPayables Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportAgedPayables = promisify(QuickBooks.prototype.reportAgedPayablesOld)
 
-QuickBooks.prototype.reportAgedPayableDetailOld = QuickBooks.prototype.reportAgedPayableDetail
+/**
+ * Retrieves the AgedPayableDetail Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportAgedPayableDetail = promisify(QuickBooks.prototype.reportAgedPayableDetailOld)
 
-QuickBooks.prototype.reportVendorExpensesOld = QuickBooks.prototype.reportVendorExpenses
+/**
+ * Retrieves the VendorExpenses Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportVendorExpenses = promisify(QuickBooks.prototype.reportVendorExpensesOld)
 
-QuickBooks.prototype.reportTransactionListOld = QuickBooks.prototype.reportTransactionList
+/**
+ * Retrieves the TransactionList Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportTransactionList = promisify(QuickBooks.prototype.reportTransactionListOld)
 
-QuickBooks.prototype.reportGeneralLedgerDetailOld = QuickBooks.prototype.reportGeneralLedgerDetail
+/**
+ * Retrieves the GeneralLedgerDetail Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportGeneralLedgerDetail = promisify(QuickBooks.prototype.reportGeneralLedgerDetailOld)
 
-QuickBooks.prototype.reportTaxSummaryOld = QuickBooks.prototype.reportTaxSummary
+/**
+ * Retrieves the TaxSummary Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportTaxSummary = promisify(QuickBooks.prototype.reportTaxSummaryOld)
 
-QuickBooks.prototype.reportDepartmentSalesOld = QuickBooks.prototype.reportDepartmentSales
+/**
+ * Retrieves the DepartmentSales Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportDepartmentSales = promisify(QuickBooks.prototype.reportDepartmentSalesOld)
 
-QuickBooks.prototype.reportClassSalesOld = QuickBooks.prototype.reportClassSales
+/**
+ * Retrieves the ClassSales Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportClassSales = promisify(QuickBooks.prototype.reportClassSalesOld)
 
-QuickBooks.prototype.reportAccountListDetailOld = QuickBooks.prototype.reportAccountListDetail
+/**
+ * Retrieves the AccountListDetail Report from QuickBooks
+ *
+ * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
+ */
 QuickBooks.prototype.reportAccountListDetail = promisify(QuickBooks.prototype.reportAccountListDetailOld)
 
-QuickBooks.prototype.reconnectOld = QuickBooks.prototype.reconnect
+
 QuickBooks.prototype.reconnect = promisify(QuickBooks.prototype.reconnectOld)
 
-QuickBooks.prototype.disconnectOld = QuickBooks.prototype.disconnect
+
 QuickBooks.prototype.disconnect = promisify(QuickBooks.prototype.disconnectOld)
-module.exports.QuickBooks = QuickBooks
+//#endregion
+module.exports = QuickBooks
