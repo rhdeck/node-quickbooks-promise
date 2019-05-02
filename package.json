@@ -1,0 +1,9 @@
+{
+  "name": "node-quickbooks-promise",
+  "version": "1.0.0",
+  "description": "Promisify node-quickbooks api",
+  "main": "index.js",
+  "repository": "https://github.com/rhdeck/node-quickbooks-promise",
+  "author": "Ray Deck",
+  "license": "MIT"
+}
