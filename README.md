@@ -1,5 +1,5 @@
 # node-quickbooks-promise
-&lt;a name&#x3D;&quot;QuickBooks&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks"></a>
 
 ## QuickBooks
 **Kind**: global class  
@@ -187,29 +187,29 @@
     * [.reportClassSales](#QuickBooks+reportClassSales)
     * [.reportAccountListDetail](#QuickBooks+reportAccountListDetail)
 
-&lt;a name&#x3D;&quot;new_QuickBooks_new&quot;&gt;&lt;&#x2F;a&gt;
+<a name="new_QuickBooks_new"></a>
 
 ### new QuickBooks()
 Quickbooks integration class from node-quickbooks
 
-&lt;a name&#x3D;&quot;QuickBooks+revokeAccess&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+revokeAccess"></a>
 
 ### quickBooks.revokeAccess
 Use either refresh token or access token to revoke access (OAuth2).
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Description |
 | --- | --- |
 | useRefresh | boolean - Indicates which token to use: true to use the refresh token, false to use the access token. |
 
-&lt;a name&#x3D;&quot;QuickBooks+getUserInfo&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getUserInfo"></a>
 
 ### quickBooks.getUserInfo
 Get user info (OAuth2).
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
-&lt;a name&#x3D;&quot;QuickBooks+batch&quot;&gt;&lt;&#x2F;a&gt;
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
+<a name="QuickBooks+batch"></a>
 
 ### quickBooks.batch
 Batch operation to enable an application to perform multiple operations in a single request.
@@ -220,1963 +220,1963 @@ The following batch items are supported:
      query
 The maximum number of batch items in a single request is 25.
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| items | &lt;code&gt;object&lt;&#x2F;code&gt; | JavaScript array of batch items |
+| items | <code>object</code> | JavaScript array of batch items |
 
-&lt;a name&#x3D;&quot;QuickBooks+changeDataCapture&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+changeDataCapture"></a>
 
 ### quickBooks.changeDataCapture
 The change data capture (CDC) operation returns a list of entities that have changed since a specified time.
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| entities | &lt;code&gt;object&lt;&#x2F;code&gt; | Comma separated list or JavaScript array of entities to search for changes |
-| since | &lt;code&gt;object&lt;&#x2F;code&gt; | JavaScript Date or string representation of the form &#39;2012-07-20T22:25:51-07:00&#39; to look back for changes until |
+| entities | <code>object</code> | Comma separated list or JavaScript array of entities to search for changes |
+| since | <code>object</code> | JavaScript Date or string representation of the form '2012-07-20T22:25:51-07:00' to look back for changes until |
 
-&lt;a name&#x3D;&quot;QuickBooks+upload&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+upload"></a>
 
 ### quickBooks.upload
 Uploads a file as an Attachable in QBO, optionally linking it to the specified
 QBO Entity.
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| filename | &lt;code&gt;string&lt;&#x2F;code&gt; | the name of the file |
-| contentType | &lt;code&gt;string&lt;&#x2F;code&gt; | the mime type of the file |
-| stream | &lt;code&gt;object&lt;&#x2F;code&gt; | ReadableStream of file contents |
-| entityType | &lt;code&gt;object&lt;&#x2F;code&gt; | optional string name of the QBO entity the Attachable will be linked to (e.g. Invoice) |
-| entityId | &lt;code&gt;object&lt;&#x2F;code&gt; | optional Id of the QBO entity the Attachable will be linked to |
+| filename | <code>string</code> | the name of the file |
+| contentType | <code>string</code> | the mime type of the file |
+| stream | <code>object</code> | ReadableStream of file contents |
+| entityType | <code>object</code> | optional string name of the QBO entity the Attachable will be linked to (e.g. Invoice) |
+| entityId | <code>object</code> | optional Id of the QBO entity the Attachable will be linked to |
 
-&lt;a name&#x3D;&quot;QuickBooks+createAccount&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createAccount"></a>
 
 ### quickBooks.createAccount
 Creates the Account in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| account | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved account, to be persisted in QuickBooks |
+| account | <code>object</code> | The unsaved account, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createAttachable&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createAttachable"></a>
 
 ### quickBooks.createAttachable
 Creates the Attachable in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| attachable | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved attachable, to be persisted in QuickBooks |
+| attachable | <code>object</code> | The unsaved attachable, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createBill&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createBill"></a>
 
 ### quickBooks.createBill
 Creates the Bill in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| bill | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved bill, to be persisted in QuickBooks |
+| bill | <code>object</code> | The unsaved bill, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createBillPayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createBillPayment"></a>
 
 ### quickBooks.createBillPayment
 Creates the BillPayment in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| billPayment | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved billPayment, to be persisted in QuickBooks |
+| billPayment | <code>object</code> | The unsaved billPayment, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createClass&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createClass"></a>
 
 ### quickBooks.createClass
 Creates the Class in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| class | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved class, to be persisted in QuickBooks |
+| class | <code>object</code> | The unsaved class, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createCreditMemo&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createCreditMemo"></a>
 
 ### quickBooks.createCreditMemo
 Creates the CreditMemo in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| creditMemo | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved creditMemo, to be persisted in QuickBooks |
+| creditMemo | <code>object</code> | The unsaved creditMemo, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createCustomer&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createCustomer"></a>
 
 ### quickBooks.createCustomer
 Creates the Customer in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| customer | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved customer, to be persisted in QuickBooks |
+| customer | <code>object</code> | The unsaved customer, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createDepartment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createDepartment"></a>
 
 ### quickBooks.createDepartment
 Creates the Department in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| department | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved department, to be persisted in QuickBooks |
+| department | <code>object</code> | The unsaved department, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createDeposit&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createDeposit"></a>
 
 ### quickBooks.createDeposit
 Creates the Deposit in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| deposit | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved Deposit, to be persisted in QuickBooks |
+| deposit | <code>object</code> | The unsaved Deposit, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createEmployee&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createEmployee"></a>
 
 ### quickBooks.createEmployee
 Creates the Employee in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| employee | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved employee, to be persisted in QuickBooks |
+| employee | <code>object</code> | The unsaved employee, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createEstimate&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createEstimate"></a>
 
 ### quickBooks.createEstimate
 Creates the Estimate in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| estimate | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved estimate, to be persisted in QuickBooks |
+| estimate | <code>object</code> | The unsaved estimate, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createInvoice&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createInvoice"></a>
 
 ### quickBooks.createInvoice
 Creates the Invoice in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| invoice | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved invoice, to be persisted in QuickBooks |
+| invoice | <code>object</code> | The unsaved invoice, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createItem&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createItem"></a>
 
 ### quickBooks.createItem
 Creates the Item in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| item | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved item, to be persisted in QuickBooks |
+| item | <code>object</code> | The unsaved item, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createJournalCode&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createJournalCode"></a>
 
 ### quickBooks.createJournalCode
 Creates the JournalCode in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| journalCode | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved journalCode, to be persisted in QuickBooks |
+| journalCode | <code>object</code> | The unsaved journalCode, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createJournalEntry&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createJournalEntry"></a>
 
 ### quickBooks.createJournalEntry
 Creates the JournalEntry in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| journalEntry | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved journalEntry, to be persisted in QuickBooks |
+| journalEntry | <code>object</code> | The unsaved journalEntry, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createPayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createPayment"></a>
 
 ### quickBooks.createPayment
 Creates the Payment in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| payment | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved payment, to be persisted in QuickBooks |
+| payment | <code>object</code> | The unsaved payment, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createPaymentMethod&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createPaymentMethod"></a>
 
 ### quickBooks.createPaymentMethod
 Creates the PaymentMethod in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| paymentMethod | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved paymentMethod, to be persisted in QuickBooks |
+| paymentMethod | <code>object</code> | The unsaved paymentMethod, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createPurchase&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createPurchase"></a>
 
 ### quickBooks.createPurchase
 Creates the Purchase in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| purchase | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved purchase, to be persisted in QuickBooks |
+| purchase | <code>object</code> | The unsaved purchase, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createPurchaseOrder&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createPurchaseOrder"></a>
 
 ### quickBooks.createPurchaseOrder
 Creates the PurchaseOrder in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| purchaseOrder | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved purchaseOrder, to be persisted in QuickBooks |
+| purchaseOrder | <code>object</code> | The unsaved purchaseOrder, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createRefundReceipt&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createRefundReceipt"></a>
 
 ### quickBooks.createRefundReceipt
 Creates the RefundReceipt in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| refundReceipt | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved refundReceipt, to be persisted in QuickBooks |
+| refundReceipt | <code>object</code> | The unsaved refundReceipt, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createSalesReceipt&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createSalesReceipt"></a>
 
 ### quickBooks.createSalesReceipt
 Creates the SalesReceipt in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| salesReceipt | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved salesReceipt, to be persisted in QuickBooks |
+| salesReceipt | <code>object</code> | The unsaved salesReceipt, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createTaxAgency&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createTaxAgency"></a>
 
 ### quickBooks.createTaxAgency
 Creates the TaxAgency in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| taxAgency | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved taxAgency, to be persisted in QuickBooks |
+| taxAgency | <code>object</code> | The unsaved taxAgency, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createTaxService&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createTaxService"></a>
 
 ### quickBooks.createTaxService
 Creates the TaxService in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| taxService | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved taxService, to be persisted in QuickBooks |
+| taxService | <code>object</code> | The unsaved taxService, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createTerm&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createTerm"></a>
 
 ### quickBooks.createTerm
 Creates the Term in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| term | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved term, to be persisted in QuickBooks |
+| term | <code>object</code> | The unsaved term, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createTimeActivity&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createTimeActivity"></a>
 
 ### quickBooks.createTimeActivity
 Creates the TimeActivity in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| timeActivity | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved timeActivity, to be persisted in QuickBooks |
+| timeActivity | <code>object</code> | The unsaved timeActivity, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createTransfer&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createTransfer"></a>
 
 ### quickBooks.createTransfer
 Creates the Transfer in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| transfer | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved Transfer, to be persisted in QuickBooks |
+| transfer | <code>object</code> | The unsaved Transfer, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createVendor&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createVendor"></a>
 
 ### quickBooks.createVendor
 Creates the Vendor in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| vendor | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved vendor, to be persisted in QuickBooks |
+| vendor | <code>object</code> | The unsaved vendor, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+createVendorCredit&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+createVendorCredit"></a>
 
 ### quickBooks.createVendorCredit
 Creates the VendorCredit in QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| vendorCredit | &lt;code&gt;object&lt;&#x2F;code&gt; | The unsaved vendorCredit, to be persisted in QuickBooks |
+| vendorCredit | <code>object</code> | The unsaved vendorCredit, to be persisted in QuickBooks |
 
-&lt;a name&#x3D;&quot;QuickBooks+getAccount&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getAccount"></a>
 
 ### quickBooks.getAccount
 Retrieves the Account from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Account |
+| Id | <code>string</code> | The Id of persistent Account |
 
-&lt;a name&#x3D;&quot;QuickBooks+getAttachable&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getAttachable"></a>
 
 ### quickBooks.getAttachable
 Retrieves the Attachable from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Attachable |
+| Id | <code>string</code> | The Id of persistent Attachable |
 
-&lt;a name&#x3D;&quot;QuickBooks+getBill&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getBill"></a>
 
 ### quickBooks.getBill
 Retrieves the Bill from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Bill |
+| Id | <code>string</code> | The Id of persistent Bill |
 
-&lt;a name&#x3D;&quot;QuickBooks+getBillPayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getBillPayment"></a>
 
 ### quickBooks.getBillPayment
 Retrieves the BillPayment from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent BillPayment |
+| Id | <code>string</code> | The Id of persistent BillPayment |
 
-&lt;a name&#x3D;&quot;QuickBooks+getClass&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getClass"></a>
 
 ### quickBooks.getClass
 Retrieves the Class from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Class |
+| Id | <code>string</code> | The Id of persistent Class |
 
-&lt;a name&#x3D;&quot;QuickBooks+getCompanyInfo&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getCompanyInfo"></a>
 
 ### quickBooks.getCompanyInfo
 Retrieves the CompanyInfo from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent CompanyInfo |
+| Id | <code>string</code> | The Id of persistent CompanyInfo |
 
-&lt;a name&#x3D;&quot;QuickBooks+getCreditMemo&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getCreditMemo"></a>
 
 ### quickBooks.getCreditMemo
 Retrieves the CreditMemo from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent CreditMemo |
+| Id | <code>string</code> | The Id of persistent CreditMemo |
 
-&lt;a name&#x3D;&quot;QuickBooks+getCustomer&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getCustomer"></a>
 
 ### quickBooks.getCustomer
 Retrieves the Customer from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Customer |
+| Id | <code>string</code> | The Id of persistent Customer |
 
-&lt;a name&#x3D;&quot;QuickBooks+getDepartment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getDepartment"></a>
 
 ### quickBooks.getDepartment
 Retrieves the Department from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Department |
+| Id | <code>string</code> | The Id of persistent Department |
 
-&lt;a name&#x3D;&quot;QuickBooks+getDeposit&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getDeposit"></a>
 
 ### quickBooks.getDeposit
 Retrieves the Deposit from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Deposit |
+| Id | <code>string</code> | The Id of persistent Deposit |
 
-&lt;a name&#x3D;&quot;QuickBooks+getEmployee&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getEmployee"></a>
 
 ### quickBooks.getEmployee
 Retrieves the Employee from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Employee |
+| Id | <code>string</code> | The Id of persistent Employee |
 
-&lt;a name&#x3D;&quot;QuickBooks+getEstimate&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getEstimate"></a>
 
 ### quickBooks.getEstimate
 Retrieves the Estimate from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Estimate |
+| Id | <code>string</code> | The Id of persistent Estimate |
 
-&lt;a name&#x3D;&quot;QuickBooks+getExchangeRate&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getExchangeRate"></a>
 
 ### quickBooks.getExchangeRate
 Retrieves an ExchangeRate from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | An object with options including the required &#x60;sourcecurrencycode&#x60; parameter and optional &#x60;asofdate&#x60; parameter. |
+| options | <code>object</code> | An object with options including the required `sourcecurrencycode` parameter and optional `asofdate` parameter. |
 
-&lt;a name&#x3D;&quot;QuickBooks+getEstimatePdf&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getEstimatePdf"></a>
 
 ### quickBooks.getEstimatePdf
 Retrieves the Estimate PDF from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Estimate |
+| Id | <code>string</code> | The Id of persistent Estimate |
 
-&lt;a name&#x3D;&quot;QuickBooks+sendEstimatePdf&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+sendEstimatePdf"></a>
 
 ### quickBooks.sendEstimatePdf
 Emails the Estimate PDF from QuickBooks to the address supplied in Estimate.BillEmail.EmailAddress
-or the specified &#39;sendTo&#39; address
+or the specified 'sendTo' address
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Estimate |
-| sendTo | &lt;code&gt;string&lt;&#x2F;code&gt; | optional email address to send the PDF to. If not provided, address supplied in Estimate.BillEmail.EmailAddress will be used |
+| Id | <code>string</code> | The Id of persistent Estimate |
+| sendTo | <code>string</code> | optional email address to send the PDF to. If not provided, address supplied in Estimate.BillEmail.EmailAddress will be used |
 
-&lt;a name&#x3D;&quot;QuickBooks+getInvoice&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getInvoice"></a>
 
 ### quickBooks.getInvoice
 Retrieves the Invoice from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Invoice |
+| Id | <code>string</code> | The Id of persistent Invoice |
 
-&lt;a name&#x3D;&quot;QuickBooks+getInvoicePdf&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getInvoicePdf"></a>
 
 ### quickBooks.getInvoicePdf
 Retrieves the Invoice PDF from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Invoice |
+| Id | <code>string</code> | The Id of persistent Invoice |
 
-&lt;a name&#x3D;&quot;QuickBooks+sendInvoicePdf&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+sendInvoicePdf"></a>
 
 ### quickBooks.sendInvoicePdf
 Emails the Invoice PDF from QuickBooks to the address supplied in Invoice.BillEmail.EmailAddress
-or the specified &#39;sendTo&#39; address
+or the specified 'sendTo' address
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Invoice |
-| sendTo | &lt;code&gt;string&lt;&#x2F;code&gt; | optional email address to send the PDF to. If not provided, address supplied in Invoice.BillEmail.EmailAddress will be used |
+| Id | <code>string</code> | The Id of persistent Invoice |
+| sendTo | <code>string</code> | optional email address to send the PDF to. If not provided, address supplied in Invoice.BillEmail.EmailAddress will be used |
 
-&lt;a name&#x3D;&quot;QuickBooks+getItem&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getItem"></a>
 
 ### quickBooks.getItem
 Retrieves the Item from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Item |
+| Id | <code>string</code> | The Id of persistent Item |
 
-&lt;a name&#x3D;&quot;QuickBooks+getJournalCode&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getJournalCode"></a>
 
 ### quickBooks.getJournalCode
 Retrieves the JournalCode from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent JournalCode |
+| Id | <code>string</code> | The Id of persistent JournalCode |
 
-&lt;a name&#x3D;&quot;QuickBooks+getJournalEntry&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getJournalEntry"></a>
 
 ### quickBooks.getJournalEntry
 Retrieves the JournalEntry from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent JournalEntry |
+| Id | <code>string</code> | The Id of persistent JournalEntry |
 
-&lt;a name&#x3D;&quot;QuickBooks+getPayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getPayment"></a>
 
 ### quickBooks.getPayment
 Retrieves the Payment from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Payment |
+| Id | <code>string</code> | The Id of persistent Payment |
 
-&lt;a name&#x3D;&quot;QuickBooks+getPaymentMethod&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getPaymentMethod"></a>
 
 ### quickBooks.getPaymentMethod
 Retrieves the PaymentMethod from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent PaymentMethod |
+| Id | <code>string</code> | The Id of persistent PaymentMethod |
 
-&lt;a name&#x3D;&quot;QuickBooks+getPreferences&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getPreferences"></a>
 
 ### quickBooks.getPreferences
 Retrieves the Preferences from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
-&lt;a name&#x3D;&quot;QuickBooks+getPurchase&quot;&gt;&lt;&#x2F;a&gt;
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
+<a name="QuickBooks+getPurchase"></a>
 
 ### quickBooks.getPurchase
 Retrieves the Purchase from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Purchase |
+| Id | <code>string</code> | The Id of persistent Purchase |
 
-&lt;a name&#x3D;&quot;QuickBooks+getPurchaseOrder&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getPurchaseOrder"></a>
 
 ### quickBooks.getPurchaseOrder
 Retrieves the PurchaseOrder from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent PurchaseOrder |
+| Id | <code>string</code> | The Id of persistent PurchaseOrder |
 
-&lt;a name&#x3D;&quot;QuickBooks+getRefundReceipt&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getRefundReceipt"></a>
 
 ### quickBooks.getRefundReceipt
 Retrieves the RefundReceipt from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent RefundReceipt |
+| Id | <code>string</code> | The Id of persistent RefundReceipt |
 
-&lt;a name&#x3D;&quot;QuickBooks+getReports&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getReports"></a>
 
 ### quickBooks.getReports
 Retrieves the Reports from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Reports |
+| Id | <code>string</code> | The Id of persistent Reports |
 
-&lt;a name&#x3D;&quot;QuickBooks+getSalesReceipt&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getSalesReceipt"></a>
 
 ### quickBooks.getSalesReceipt
 Retrieves the SalesReceipt from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent SalesReceipt |
+| Id | <code>string</code> | The Id of persistent SalesReceipt |
 
-&lt;a name&#x3D;&quot;QuickBooks+getSalesReceiptPdf&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getSalesReceiptPdf"></a>
 
 ### quickBooks.getSalesReceiptPdf
 Retrieves the SalesReceipt PDF from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent SalesReceipt |
+| Id | <code>string</code> | The Id of persistent SalesReceipt |
 
-&lt;a name&#x3D;&quot;QuickBooks+sendSalesReceiptPdf&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+sendSalesReceiptPdf"></a>
 
 ### quickBooks.sendSalesReceiptPdf
 Emails the SalesReceipt PDF from QuickBooks to the address supplied in SalesReceipt.BillEmail.EmailAddress
-or the specified &#39;sendTo&#39; address
+or the specified 'sendTo' address
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent SalesReceipt |
-| sendTo | &lt;code&gt;string&lt;&#x2F;code&gt; | optional email address to send the PDF to. If not provided, address supplied in SalesReceipt.BillEmail.EmailAddress will be used |
+| Id | <code>string</code> | The Id of persistent SalesReceipt |
+| sendTo | <code>string</code> | optional email address to send the PDF to. If not provided, address supplied in SalesReceipt.BillEmail.EmailAddress will be used |
 
-&lt;a name&#x3D;&quot;QuickBooks+getTaxAgency&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getTaxAgency"></a>
 
 ### quickBooks.getTaxAgency
 Retrieves the TaxAgency from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent TaxAgency |
+| Id | <code>string</code> | The Id of persistent TaxAgency |
 
-&lt;a name&#x3D;&quot;QuickBooks+getTaxCode&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getTaxCode"></a>
 
 ### quickBooks.getTaxCode
 Retrieves the TaxCode from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent TaxCode |
+| Id | <code>string</code> | The Id of persistent TaxCode |
 
-&lt;a name&#x3D;&quot;QuickBooks+getTaxRate&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getTaxRate"></a>
 
 ### quickBooks.getTaxRate
 Retrieves the TaxRate from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent TaxRate |
+| Id | <code>string</code> | The Id of persistent TaxRate |
 
-&lt;a name&#x3D;&quot;QuickBooks+getTerm&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getTerm"></a>
 
 ### quickBooks.getTerm
 Retrieves the Term from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Term |
+| Id | <code>string</code> | The Id of persistent Term |
 
-&lt;a name&#x3D;&quot;QuickBooks+getTimeActivity&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getTimeActivity"></a>
 
 ### quickBooks.getTimeActivity
 Retrieves the TimeActivity from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent TimeActivity |
+| Id | <code>string</code> | The Id of persistent TimeActivity |
 
-&lt;a name&#x3D;&quot;QuickBooks+getTransfer&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getTransfer"></a>
 
 ### quickBooks.getTransfer
 Retrieves the Transfer from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Term |
+| Id | <code>string</code> | The Id of persistent Term |
 
-&lt;a name&#x3D;&quot;QuickBooks+getVendor&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getVendor"></a>
 
 ### quickBooks.getVendor
 Retrieves the Vendor from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent Vendor |
+| Id | <code>string</code> | The Id of persistent Vendor |
 
-&lt;a name&#x3D;&quot;QuickBooks+getVendorCredit&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+getVendorCredit"></a>
 
 ### quickBooks.getVendorCredit
 Retrieves the VendorCredit from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Id | &lt;code&gt;string&lt;&#x2F;code&gt; | The Id of persistent VendorCredit |
+| Id | <code>string</code> | The Id of persistent VendorCredit |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateAccount&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateAccount"></a>
 
 ### quickBooks.updateAccount
 Updates QuickBooks version of Account
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| account | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Account, including Id and SyncToken fields |
+| account | <code>object</code> | The persistent Account, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateAttachable&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateAttachable"></a>
 
 ### quickBooks.updateAttachable
 Updates QuickBooks version of Attachable
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| attachable | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Attachable, including Id and SyncToken fields |
+| attachable | <code>object</code> | The persistent Attachable, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateBill&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateBill"></a>
 
 ### quickBooks.updateBill
 Updates QuickBooks version of Bill
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| bill | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Bill, including Id and SyncToken fields |
+| bill | <code>object</code> | The persistent Bill, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateBillPayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateBillPayment"></a>
 
 ### quickBooks.updateBillPayment
 Updates QuickBooks version of BillPayment
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| billPayment | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent BillPayment, including Id and SyncToken fields |
+| billPayment | <code>object</code> | The persistent BillPayment, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateClass&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateClass"></a>
 
 ### quickBooks.updateClass
 Updates QuickBooks version of Class
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| class | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Class, including Id and SyncToken fields |
+| class | <code>object</code> | The persistent Class, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateCompanyInfo&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateCompanyInfo"></a>
 
 ### quickBooks.updateCompanyInfo
 Updates QuickBooks version of CompanyInfo
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| companyInfo | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent CompanyInfo, including Id and SyncToken fields |
+| companyInfo | <code>object</code> | The persistent CompanyInfo, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateCreditMemo&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateCreditMemo"></a>
 
 ### quickBooks.updateCreditMemo
 Updates QuickBooks version of CreditMemo
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| creditMemo | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent CreditMemo, including Id and SyncToken fields |
+| creditMemo | <code>object</code> | The persistent CreditMemo, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateCustomer&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateCustomer"></a>
 
 ### quickBooks.updateCustomer
 Updates QuickBooks version of Customer
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| customer | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Customer, including Id and SyncToken fields |
+| customer | <code>object</code> | The persistent Customer, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateDepartment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateDepartment"></a>
 
 ### quickBooks.updateDepartment
 Updates QuickBooks version of Department
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| department | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Department, including Id and SyncToken fields |
+| department | <code>object</code> | The persistent Department, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateDeposit&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateDeposit"></a>
 
 ### quickBooks.updateDeposit
 Updates QuickBooks version of Deposit
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| deposit | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Deposit, including Id and SyncToken fields |
+| deposit | <code>object</code> | The persistent Deposit, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateEmployee&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateEmployee"></a>
 
 ### quickBooks.updateEmployee
 Updates QuickBooks version of Employee
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| employee | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Employee, including Id and SyncToken fields |
+| employee | <code>object</code> | The persistent Employee, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateEstimate&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateEstimate"></a>
 
 ### quickBooks.updateEstimate
 Updates QuickBooks version of Estimate
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| estimate | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Estimate, including Id and SyncToken fields |
+| estimate | <code>object</code> | The persistent Estimate, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateInvoice&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateInvoice"></a>
 
 ### quickBooks.updateInvoice
 Updates QuickBooks version of Invoice
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| invoice | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Invoice, including Id and SyncToken fields |
+| invoice | <code>object</code> | The persistent Invoice, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateItem&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateItem"></a>
 
 ### quickBooks.updateItem
 Updates QuickBooks version of Item
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| item | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Item, including Id and SyncToken fields |
+| item | <code>object</code> | The persistent Item, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateJournalCode&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateJournalCode"></a>
 
 ### quickBooks.updateJournalCode
 Updates QuickBooks version of JournalCode
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| journalCode | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent JournalCode, including Id and SyncToken fields |
+| journalCode | <code>object</code> | The persistent JournalCode, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateJournalEntry&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateJournalEntry"></a>
 
 ### quickBooks.updateJournalEntry
 Updates QuickBooks version of JournalEntry
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| journalEntry | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent JournalEntry, including Id and SyncToken fields |
+| journalEntry | <code>object</code> | The persistent JournalEntry, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updatePayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updatePayment"></a>
 
 ### quickBooks.updatePayment
 Updates QuickBooks version of Payment
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| payment | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Payment, including Id and SyncToken fields |
+| payment | <code>object</code> | The persistent Payment, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updatePaymentMethod&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updatePaymentMethod"></a>
 
 ### quickBooks.updatePaymentMethod
 Updates QuickBooks version of PaymentMethod
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| paymentMethod | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent PaymentMethod, including Id and SyncToken fields |
+| paymentMethod | <code>object</code> | The persistent PaymentMethod, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updatePreferences&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updatePreferences"></a>
 
 ### quickBooks.updatePreferences
 Updates QuickBooks version of Preferences
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| preferences | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Preferences, including Id and SyncToken fields |
+| preferences | <code>object</code> | The persistent Preferences, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updatePurchase&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updatePurchase"></a>
 
 ### quickBooks.updatePurchase
 Updates QuickBooks version of Purchase
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| purchase | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Purchase, including Id and SyncToken fields |
+| purchase | <code>object</code> | The persistent Purchase, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updatePurchaseOrder&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updatePurchaseOrder"></a>
 
 ### quickBooks.updatePurchaseOrder
 Updates QuickBooks version of PurchaseOrder
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| purchaseOrder | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent PurchaseOrder, including Id and SyncToken fields |
+| purchaseOrder | <code>object</code> | The persistent PurchaseOrder, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateRefundReceipt&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateRefundReceipt"></a>
 
 ### quickBooks.updateRefundReceipt
 Updates QuickBooks version of RefundReceipt
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| refundReceipt | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent RefundReceipt, including Id and SyncToken fields |
+| refundReceipt | <code>object</code> | The persistent RefundReceipt, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateSalesReceipt&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateSalesReceipt"></a>
 
 ### quickBooks.updateSalesReceipt
 Updates QuickBooks version of SalesReceipt
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| salesReceipt | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent SalesReceipt, including Id and SyncToken fields |
+| salesReceipt | <code>object</code> | The persistent SalesReceipt, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateTaxAgency&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateTaxAgency"></a>
 
 ### quickBooks.updateTaxAgency
 Updates QuickBooks version of TaxAgency
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| taxAgency | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent TaxAgency, including Id and SyncToken fields |
+| taxAgency | <code>object</code> | The persistent TaxAgency, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateTaxCode&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateTaxCode"></a>
 
 ### quickBooks.updateTaxCode
 Updates QuickBooks version of TaxCode
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| taxCode | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent TaxCode, including Id and SyncToken fields |
+| taxCode | <code>object</code> | The persistent TaxCode, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateTaxRate&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateTaxRate"></a>
 
 ### quickBooks.updateTaxRate
 Updates QuickBooks version of TaxRate
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| taxRate | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent TaxRate, including Id and SyncToken fields |
+| taxRate | <code>object</code> | The persistent TaxRate, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateTerm&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateTerm"></a>
 
 ### quickBooks.updateTerm
 Updates QuickBooks version of Term
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| term | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Term, including Id and SyncToken fields |
+| term | <code>object</code> | The persistent Term, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateTimeActivity&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateTimeActivity"></a>
 
 ### quickBooks.updateTimeActivity
 Updates QuickBooks version of TimeActivity
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| timeActivity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent TimeActivity, including Id and SyncToken fields |
+| timeActivity | <code>object</code> | The persistent TimeActivity, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateTransfer&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateTransfer"></a>
 
 ### quickBooks.updateTransfer
 Updates QuickBooks version of Transfer
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| Transfer | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Transfer, including Id and SyncToken fields |
+| Transfer | <code>object</code> | The persistent Transfer, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateVendor&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateVendor"></a>
 
 ### quickBooks.updateVendor
 Updates QuickBooks version of Vendor
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| vendor | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Vendor, including Id and SyncToken fields |
+| vendor | <code>object</code> | The persistent Vendor, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateVendorCredit&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateVendorCredit"></a>
 
 ### quickBooks.updateVendorCredit
 Updates QuickBooks version of VendorCredit
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| vendorCredit | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent VendorCredit, including Id and SyncToken fields |
+| vendorCredit | <code>object</code> | The persistent VendorCredit, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+updateExchangeRate&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+updateExchangeRate"></a>
 
 ### quickBooks.updateExchangeRate
 Updates QuickBooks version of ExchangeRate
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| exchangeRate | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent ExchangeRate, including Id and SyncToken fields |
+| exchangeRate | <code>object</code> | The persistent ExchangeRate, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteAttachable&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteAttachable"></a>
 
 ### quickBooks.deleteAttachable
 Deletes the Attachable from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Attachable to be deleted, or the Id of the Attachable, in which case an extra GET request will be issued to first retrieve the Attachable |
+| idOrEntity | <code>object</code> | The persistent Attachable to be deleted, or the Id of the Attachable, in which case an extra GET request will be issued to first retrieve the Attachable |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteBill&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteBill"></a>
 
 ### quickBooks.deleteBill
 Deletes the Bill from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Bill to be deleted, or the Id of the Bill, in which case an extra GET request will be issued to first retrieve the Bill |
+| idOrEntity | <code>object</code> | The persistent Bill to be deleted, or the Id of the Bill, in which case an extra GET request will be issued to first retrieve the Bill |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteBillPayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteBillPayment"></a>
 
 ### quickBooks.deleteBillPayment
 Deletes the BillPayment from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent BillPayment to be deleted, or the Id of the BillPayment, in which case an extra GET request will be issued to first retrieve the BillPayment |
+| idOrEntity | <code>object</code> | The persistent BillPayment to be deleted, or the Id of the BillPayment, in which case an extra GET request will be issued to first retrieve the BillPayment |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteCreditMemo&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteCreditMemo"></a>
 
 ### quickBooks.deleteCreditMemo
 Deletes the CreditMemo from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent CreditMemo to be deleted, or the Id of the CreditMemo, in which case an extra GET request will be issued to first retrieve the CreditMemo |
+| idOrEntity | <code>object</code> | The persistent CreditMemo to be deleted, or the Id of the CreditMemo, in which case an extra GET request will be issued to first retrieve the CreditMemo |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteDeposit&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteDeposit"></a>
 
 ### quickBooks.deleteDeposit
 Deletes the Deposit from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Deposit to be deleted, or the Id of the Deposit, in which case an extra GET request will be issued to first retrieve the Deposit |
+| idOrEntity | <code>object</code> | The persistent Deposit to be deleted, or the Id of the Deposit, in which case an extra GET request will be issued to first retrieve the Deposit |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteEstimate&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteEstimate"></a>
 
 ### quickBooks.deleteEstimate
 Deletes the Estimate from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Estimate to be deleted, or the Id of the Estimate, in which case an extra GET request will be issued to first retrieve the Estimate |
+| idOrEntity | <code>object</code> | The persistent Estimate to be deleted, or the Id of the Estimate, in which case an extra GET request will be issued to first retrieve the Estimate |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteInvoice&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteInvoice"></a>
 
 ### quickBooks.deleteInvoice
 Deletes the Invoice from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Invoice to be deleted, or the Id of the Invoice, in which case an extra GET request will be issued to first retrieve the Invoice |
+| idOrEntity | <code>object</code> | The persistent Invoice to be deleted, or the Id of the Invoice, in which case an extra GET request will be issued to first retrieve the Invoice |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteJournalCode&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteJournalCode"></a>
 
 ### quickBooks.deleteJournalCode
 Deletes the JournalCode from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent JournalCode to be deleted, or the Id of the JournalCode, in which case an extra GET request will be issued to first retrieve the JournalCode |
+| idOrEntity | <code>object</code> | The persistent JournalCode to be deleted, or the Id of the JournalCode, in which case an extra GET request will be issued to first retrieve the JournalCode |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteJournalEntry&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteJournalEntry"></a>
 
 ### quickBooks.deleteJournalEntry
 Deletes the JournalEntry from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent JournalEntry to be deleted, or the Id of the JournalEntry, in which case an extra GET request will be issued to first retrieve the JournalEntry |
+| idOrEntity | <code>object</code> | The persistent JournalEntry to be deleted, or the Id of the JournalEntry, in which case an extra GET request will be issued to first retrieve the JournalEntry |
 
-&lt;a name&#x3D;&quot;QuickBooks+deletePayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deletePayment"></a>
 
 ### quickBooks.deletePayment
 Deletes the Payment from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Payment to be deleted, or the Id of the Payment, in which case an extra GET request will be issued to first retrieve the Payment |
+| idOrEntity | <code>object</code> | The persistent Payment to be deleted, or the Id of the Payment, in which case an extra GET request will be issued to first retrieve the Payment |
 
-&lt;a name&#x3D;&quot;QuickBooks+deletePurchase&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deletePurchase"></a>
 
 ### quickBooks.deletePurchase
 Deletes the Purchase from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Purchase to be deleted, or the Id of the Purchase, in which case an extra GET request will be issued to first retrieve the Purchase |
+| idOrEntity | <code>object</code> | The persistent Purchase to be deleted, or the Id of the Purchase, in which case an extra GET request will be issued to first retrieve the Purchase |
 
-&lt;a name&#x3D;&quot;QuickBooks+deletePurchaseOrder&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deletePurchaseOrder"></a>
 
 ### quickBooks.deletePurchaseOrder
 Deletes the PurchaseOrder from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent PurchaseOrder to be deleted, or the Id of the PurchaseOrder, in which case an extra GET request will be issued to first retrieve the PurchaseOrder |
+| idOrEntity | <code>object</code> | The persistent PurchaseOrder to be deleted, or the Id of the PurchaseOrder, in which case an extra GET request will be issued to first retrieve the PurchaseOrder |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteRefundReceipt&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteRefundReceipt"></a>
 
 ### quickBooks.deleteRefundReceipt
 Deletes the RefundReceipt from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent RefundReceipt to be deleted, or the Id of the RefundReceipt, in which case an extra GET request will be issued to first retrieve the RefundReceipt |
+| idOrEntity | <code>object</code> | The persistent RefundReceipt to be deleted, or the Id of the RefundReceipt, in which case an extra GET request will be issued to first retrieve the RefundReceipt |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteSalesReceipt&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteSalesReceipt"></a>
 
 ### quickBooks.deleteSalesReceipt
 Deletes the SalesReceipt from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent SalesReceipt to be deleted, or the Id of the SalesReceipt, in which case an extra GET request will be issued to first retrieve the SalesReceipt |
+| idOrEntity | <code>object</code> | The persistent SalesReceipt to be deleted, or the Id of the SalesReceipt, in which case an extra GET request will be issued to first retrieve the SalesReceipt |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteTimeActivity&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteTimeActivity"></a>
 
 ### quickBooks.deleteTimeActivity
 Deletes the TimeActivity from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent TimeActivity to be deleted, or the Id of the TimeActivity, in which case an extra GET request will be issued to first retrieve the TimeActivity |
+| idOrEntity | <code>object</code> | The persistent TimeActivity to be deleted, or the Id of the TimeActivity, in which case an extra GET request will be issued to first retrieve the TimeActivity |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteTransfer&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteTransfer"></a>
 
 ### quickBooks.deleteTransfer
 Deletes the Transfer from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Transfer to be deleted, or the Id of the Transfer, in which case an extra GET request will be issued to first retrieve the Transfer |
+| idOrEntity | <code>object</code> | The persistent Transfer to be deleted, or the Id of the Transfer, in which case an extra GET request will be issued to first retrieve the Transfer |
 
-&lt;a name&#x3D;&quot;QuickBooks+deleteVendorCredit&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+deleteVendorCredit"></a>
 
 ### quickBooks.deleteVendorCredit
 Deletes the VendorCredit from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent VendorCredit to be deleted, or the Id of the VendorCredit, in which case an extra GET request will be issued to first retrieve the VendorCredit |
+| idOrEntity | <code>object</code> | The persistent VendorCredit to be deleted, or the Id of the VendorCredit, in which case an extra GET request will be issued to first retrieve the VendorCredit |
 
-&lt;a name&#x3D;&quot;QuickBooks+voidInvoice&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+voidInvoice"></a>
 
 ### quickBooks.voidInvoice
 Voids the Invoice from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| idOrEntity | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Invoice to be voided, or the Id of the Invoice, in which case an extra GET request will be issued to first retrieve the Invoice |
+| idOrEntity | <code>object</code> | The persistent Invoice to be voided, or the Id of the Invoice, in which case an extra GET request will be issued to first retrieve the Invoice |
 
-&lt;a name&#x3D;&quot;QuickBooks+voidPayment&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+voidPayment"></a>
 
 ### quickBooks.voidPayment
 Voids QuickBooks version of Payment
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| payment | &lt;code&gt;object&lt;&#x2F;code&gt; | The persistent Payment, including Id and SyncToken fields |
+| payment | <code>object</code> | The persistent Payment, including Id and SyncToken fields |
 
-&lt;a name&#x3D;&quot;QuickBooks+findAccounts&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findAccounts"></a>
 
 ### quickBooks.findAccounts
 Finds all Accounts in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findAttachables&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findAttachables"></a>
 
 ### quickBooks.findAttachables
 Finds all Attachables in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findBills&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findBills"></a>
 
 ### quickBooks.findBills
 Finds all Bills in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findBillPayments&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findBillPayments"></a>
 
 ### quickBooks.findBillPayments
 Finds all BillPayments in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findBudgets&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findBudgets"></a>
 
 ### quickBooks.findBudgets
 Finds all Budgets in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findClasses&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findClasses"></a>
 
 ### quickBooks.findClasses
 Finds all Classs in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findCompanyInfos&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findCompanyInfos"></a>
 
 ### quickBooks.findCompanyInfos
 Finds all CompanyInfos in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findCreditMemos&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findCreditMemos"></a>
 
 ### quickBooks.findCreditMemos
 Finds all CreditMemos in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findCustomers&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findCustomers"></a>
 
 ### quickBooks.findCustomers
 Finds all Customers in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findDepartments&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findDepartments"></a>
 
 ### quickBooks.findDepartments
 Finds all Departments in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findDeposits&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findDeposits"></a>
 
 ### quickBooks.findDeposits
 Finds all Deposits in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findEmployees&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findEmployees"></a>
 
 ### quickBooks.findEmployees
 Finds all Employees in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findEstimates&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findEstimates"></a>
 
 ### quickBooks.findEstimates
 Finds all Estimates in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findInvoices&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findInvoices"></a>
 
 ### quickBooks.findInvoices
 Finds all Invoices in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findItems&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findItems"></a>
 
 ### quickBooks.findItems
 Finds all Items in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findJournalCodes&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findJournalCodes"></a>
 
 ### quickBooks.findJournalCodes
 Finds all JournalCodes in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findJournalEntries&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findJournalEntries"></a>
 
 ### quickBooks.findJournalEntries
 Finds all JournalEntrys in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findPayments&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findPayments"></a>
 
 ### quickBooks.findPayments
 Finds all Payments in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findPaymentMethods&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findPaymentMethods"></a>
 
 ### quickBooks.findPaymentMethods
 Finds all PaymentMethods in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findPreferenceses&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findPreferenceses"></a>
 
 ### quickBooks.findPreferenceses
 Finds all Preferencess in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findPurchases&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findPurchases"></a>
 
 ### quickBooks.findPurchases
 Finds all Purchases in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findPurchaseOrders&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findPurchaseOrders"></a>
 
 ### quickBooks.findPurchaseOrders
 Finds all PurchaseOrders in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findRefundReceipts&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findRefundReceipts"></a>
 
 ### quickBooks.findRefundReceipts
 Finds all RefundReceipts in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findSalesReceipts&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findSalesReceipts"></a>
 
 ### quickBooks.findSalesReceipts
 Finds all SalesReceipts in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findTaxAgencies&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findTaxAgencies"></a>
 
 ### quickBooks.findTaxAgencies
 Finds all TaxAgencys in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findTaxCodes&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findTaxCodes"></a>
 
 ### quickBooks.findTaxCodes
 Finds all TaxCodes in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findTaxRates&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findTaxRates"></a>
 
 ### quickBooks.findTaxRates
 Finds all TaxRates in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findTerms&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findTerms"></a>
 
 ### quickBooks.findTerms
 Finds all Terms in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findTimeActivities&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findTimeActivities"></a>
 
 ### quickBooks.findTimeActivities
 Finds all TimeActivitys in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findTransfers&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findTransfers"></a>
 
 ### quickBooks.findTransfers
 Finds all Transfers in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findVendors&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findVendors"></a>
 
 ### quickBooks.findVendors
 Finds all Vendors in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findVendorCredits&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findVendorCredits"></a>
 
 ### quickBooks.findVendorCredits
 Finds all VendorCredits in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+findExchangeRates&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+findExchangeRates"></a>
 
 ### quickBooks.findExchangeRates
 Finds all ExchangeRates in QuickBooks, optionally matching the specified criteria
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| criteria | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) String or single-valued map converted to a where clause of the form &quot;where key &#x3D; &#39;value&#39;&quot; |
+| criteria | <code>object</code> | (Optional) String or single-valued map converted to a where clause of the form "where key = 'value'" |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportBalanceSheet&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportBalanceSheet"></a>
 
 ### quickBooks.reportBalanceSheet
 Retrieves the BalanceSheet Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportProfitAndLoss&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportProfitAndLoss"></a>
 
 ### quickBooks.reportProfitAndLoss
 Retrieves the ProfitAndLoss Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportProfitAndLossDetail&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportProfitAndLossDetail"></a>
 
 ### quickBooks.reportProfitAndLossDetail
 Retrieves the ProfitAndLossDetail Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportTrialBalance&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportTrialBalance"></a>
 
 ### quickBooks.reportTrialBalance
 Retrieves the TrialBalance Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportCashFlow&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportCashFlow"></a>
 
 ### quickBooks.reportCashFlow
 Retrieves the CashFlow Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportInventoryValuationSummary&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportInventoryValuationSummary"></a>
 
 ### quickBooks.reportInventoryValuationSummary
 Retrieves the InventoryValuationSummary Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportCustomerSales&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportCustomerSales"></a>
 
 ### quickBooks.reportCustomerSales
 Retrieves the CustomerSales Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportItemSales&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportItemSales"></a>
 
 ### quickBooks.reportItemSales
 Retrieves the ItemSales Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportCustomerIncome&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportCustomerIncome"></a>
 
 ### quickBooks.reportCustomerIncome
 Retrieves the CustomerIncome Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportCustomerBalance&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportCustomerBalance"></a>
 
 ### quickBooks.reportCustomerBalance
 Retrieves the CustomerBalance Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportCustomerBalanceDetail&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportCustomerBalanceDetail"></a>
 
 ### quickBooks.reportCustomerBalanceDetail
 Retrieves the CustomerBalanceDetail Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportAgedReceivables&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportAgedReceivables"></a>
 
 ### quickBooks.reportAgedReceivables
 Retrieves the AgedReceivables Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportAgedReceivableDetail&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportAgedReceivableDetail"></a>
 
 ### quickBooks.reportAgedReceivableDetail
 Retrieves the AgedReceivableDetail Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportVendorBalance&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportVendorBalance"></a>
 
 ### quickBooks.reportVendorBalance
 Retrieves the VendorBalance Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportVendorBalanceDetail&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportVendorBalanceDetail"></a>
 
 ### quickBooks.reportVendorBalanceDetail
 Retrieves the VendorBalanceDetail Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportAgedPayables&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportAgedPayables"></a>
 
 ### quickBooks.reportAgedPayables
 Retrieves the AgedPayables Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportAgedPayableDetail&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportAgedPayableDetail"></a>
 
 ### quickBooks.reportAgedPayableDetail
 Retrieves the AgedPayableDetail Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportVendorExpenses&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportVendorExpenses"></a>
 
 ### quickBooks.reportVendorExpenses
 Retrieves the VendorExpenses Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportTransactionList&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportTransactionList"></a>
 
 ### quickBooks.reportTransactionList
 Retrieves the TransactionList Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportGeneralLedgerDetail&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportGeneralLedgerDetail"></a>
 
 ### quickBooks.reportGeneralLedgerDetail
 Retrieves the GeneralLedgerDetail Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportTaxSummary&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportTaxSummary"></a>
 
 ### quickBooks.reportTaxSummary
 Retrieves the TaxSummary Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportDepartmentSales&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportDepartmentSales"></a>
 
 ### quickBooks.reportDepartmentSales
 Retrieves the DepartmentSales Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportClassSales&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportClassSales"></a>
 
 ### quickBooks.reportClassSales
 Retrieves the ClassSales Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
-&lt;a name&#x3D;&quot;QuickBooks+reportAccountListDetail&quot;&gt;&lt;&#x2F;a&gt;
+<a name="QuickBooks+reportAccountListDetail"></a>
 
 ### quickBooks.reportAccountListDetail
 Retrieves the AccountListDetail Report from QuickBooks
 
-**Kind**: instance property of [&lt;code&gt;QuickBooks&lt;&#x2F;code&gt;](#QuickBooks)  
+**Kind**: instance property of [<code>QuickBooks</code>](#QuickBooks)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | &lt;code&gt;object&lt;&#x2F;code&gt; | (Optional) Map of key-value pairs passed as options to the Report |
+| options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
