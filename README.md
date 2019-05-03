@@ -1,4 +1,23 @@
 # node-quickbooks-promise
+Overlay of [`node-quickbooks`](https://github.com/mcohen01/node-quickbooks) that replaces callback API with promises
+## Example
+```js
+const QuickBooks = require("node-quickbooks-promise");
+const qbo = new QuickBooks({/*credential object just as in node-quickbooks*/});
+const accessToken = await qbo.refreshAccessToken();
+const customers = await qbo.findCustomers({ Id: "1234" });
+const customer = customer.QueryResponse.Customer[0]
+console.log(`Hi my customer's name is ${customer.Name}`)
+
+```
+
+# Installation
+```bash
+yarn add node-quickbooks-promise
+# or...
+npm i s node-quickbooks-promise
+```
+# API
 <a name="QuickBooks"></a>
 
 ## QuickBooks
@@ -2180,3 +2199,10 @@ Retrieves the AccountListDetail Report from QuickBooks
 | --- | --- | --- |
 | options | <code>object</code> | (Optional) Map of key-value pairs passed as options to the Report |
 
+
+# Code Generation
+This is an automatically-generated codebase - including this `README`! To see how it is built, 
+```
+yarn build
+```
+Or check out the `makePromises.js` to see how the analysis is done. 
