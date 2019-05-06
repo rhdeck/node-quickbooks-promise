@@ -1,7 +1,7 @@
 const { readFileSync, writeFileSync } = require("fs");
 const { join, resolve } = require("path");
 const js2md = require("jsdoc-to-markdown");
-const qbPath = require.resolve("node-quickbooks");
+const qbPath = require.resolve("@raydeck/node-quickbooks");
 const mustache = require("mustache");
 const text = readFileSync(qbPath, {
   encoding: "UTF8"
@@ -55,7 +55,7 @@ const outLines = [
   "* Quickbooks integration class from node-quickbooks",
   "* @class",
   "*/",
-  'const QuickBooks = require("node-quickbooks")',
+  'const QuickBooks = require("@raydeck/node-quickbooks")',
   "//#region Conversion of methods to Old",
   ...olds,
   "//#endregion",

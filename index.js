@@ -3,14 +3,13 @@ const { promisify } = require("util")
 * Quickbooks integration class from node-quickbooks
 * @class
 */
-const QuickBooks = require("node-quickbooks")
+const QuickBooks = require("@raydeck/node-quickbooks")
 //#region Conversion of methods to Old
 QuickBooks.prototype.refreshAccessTokenOld = QuickBooks.prototype.refreshAccessToken
 QuickBooks.prototype.revokeAccessOld = QuickBooks.prototype.revokeAccess
 QuickBooks.prototype.getUserInfoOld = QuickBooks.prototype.getUserInfo
 QuickBooks.prototype.batchOld = QuickBooks.prototype.batch
 QuickBooks.prototype.changeDataCaptureOld = QuickBooks.prototype.changeDataCapture
-QuickBooks.prototype.uploadOld = QuickBooks.prototype.upload
 QuickBooks.prototype.createAccountOld = QuickBooks.prototype.createAccount
 QuickBooks.prototype.createAttachableOld = QuickBooks.prototype.createAttachable
 QuickBooks.prototype.createBillOld = QuickBooks.prototype.createBill
@@ -167,7 +166,6 @@ QuickBooks.prototype.reportProfitAndLossOld = QuickBooks.prototype.reportProfitA
 QuickBooks.prototype.reportProfitAndLossDetailOld = QuickBooks.prototype.reportProfitAndLossDetail
 QuickBooks.prototype.reportTrialBalanceOld = QuickBooks.prototype.reportTrialBalance
 QuickBooks.prototype.reportCashFlowOld = QuickBooks.prototype.reportCashFlow
-QuickBooks.prototype.reportInventoryValuationSummaryOld = QuickBooks.prototype.reportInventoryValuationSummary
 QuickBooks.prototype.reportCustomerSalesOld = QuickBooks.prototype.reportCustomerSales
 QuickBooks.prototype.reportItemSalesOld = QuickBooks.prototype.reportItemSales
 QuickBooks.prototype.reportCustomerIncomeOld = QuickBooks.prototype.reportCustomerIncome
@@ -227,18 +225,6 @@ QuickBooks.prototype.batch = promisify(QuickBooks.prototype.batchOld)
  * @param  {object} since - JavaScript Date or string representation of the form '2012-07-20T22:25:51-07:00' to look back for changes until
  */
 QuickBooks.prototype.changeDataCapture = promisify(QuickBooks.prototype.changeDataCaptureOld)
-
-/**
- * Uploads a file as an Attachable in QBO, optionally linking it to the specified
- * QBO Entity.
- *
- * @param  {string} filename - the name of the file
- * @param  {string} contentType - the mime type of the file
- * @param  {object} stream - ReadableStream of file contents
- * @param  {object} entityType - optional string name of the QBO entity the Attachable will be linked to (e.g. Invoice)
- * @param  {object} entityId - optional Id of the QBO entity the Attachable will be linked to
- */
-QuickBooks.prototype.upload = promisify(QuickBooks.prototype.uploadOld)
 
 /**
  * Creates the Account in QuickBooks
@@ -1336,13 +1322,6 @@ QuickBooks.prototype.reportTrialBalance = promisify(QuickBooks.prototype.reportT
  * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
  */
 QuickBooks.prototype.reportCashFlow = promisify(QuickBooks.prototype.reportCashFlowOld)
-
-/**
- * Retrieves the InventoryValuationSummary Report from QuickBooks
- *
- * @param  {object} options - (Optional) Map of key-value pairs passed as options to the Report
- */
-QuickBooks.prototype.reportInventoryValuationSummary = promisify(QuickBooks.prototype.reportInventoryValuationSummaryOld)
 
 /**
  * Retrieves the CustomerSales Report from QuickBooks
