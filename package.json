@@ -1,6 +1,6 @@
 {
   "name": "node-quickbooks-promise",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Promisify node-quickbooks api",
   "main": "index.js",
   "repository": "https://github.com/rhdeck/node-quickbooks-promise",
